@@ -1,0 +1,2795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official Rank Store for RGS Networks. Upgrade your Minecraft gameplay with Elite, Legend, and Custom ranks. Instant in-game delivery, secure payments, and exclusive perks.">
+  <meta name="keywords" content="RGS Networks, Minecraft Store, Gaming Server Ranks, Minecraft Ranks, Buy Ranks, Elite Rank, Legend Rank, Custom Rank, rgs.mcc.lk">
+  <meta name="author" content="RGS Networks">
+  <title>RGS NETWORKS | Official Server Rank Store</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f0ff'><path d='M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z'/></svg>">
+
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans, Rajdhani -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Canvas Confetti for celebratory purchase flow -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & CSS VARIABLES
+       ========================================================================== */
+    :root {
+      --bg-darkest: #050811;
+      --bg-base: #090d1a;
+      --bg-surface: #0f1527;
+      --bg-surface-elevated: #151d36;
+      --bg-card: rgba(15, 21, 39, 0.72);
+      --bg-card-hover: rgba(21, 29, 54, 0.88);
+      --bg-glass: rgba(15, 21, 39, 0.6);
+      
+      --cyan-300: #67e8f9;
+      --cyan-400: #00f0ff;
+      --cyan-500: #00c8ff;
+      --cyan-glow: rgba(0, 240, 255, 0.35);
+      
+      --purple-300: #d8b4fe;
+      --purple-400: #b05cff;
+      --purple-500: #9333ea;
+      --purple-glow: rgba(168, 85, 247, 0.35);
+
+      --gold-300: #fde047;
+      --gold-400: #fbbf24;
+      --gold-500: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.35);
+
+      --discord-color: #5865F2;
+      --discord-hover: #4752c4;
+
+      --gradient-accent: linear-gradient(135deg, #00f0ff 0%, #a855f7 100%);
+      --gradient-accent-reverse: linear-gradient(135deg, #a855f7 0%, #00f0ff 100%);
+      --gradient-elite: linear-gradient(135deg, #00f0ff 0%, #3b82f6 100%);
+      --gradient-legend: linear-gradient(135deg, #00f0ff 0%, #a855f7 50%, #ec4899 100%);
+      --gradient-custom: linear-gradient(135deg, #fbbf24 0%, #f43f5e 50%, #8b5cf6 100%);
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow-cyan: rgba(0, 240, 255, 0.4);
+      --border-glow-purple: rgba(168, 85, 247, 0.4);
+      --border-glow-gold: rgba(251, 191, 36, 0.4);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+      --radius-full: 9999px;
+
+      --shadow-card: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
+      --shadow-neon-cyan: 0 0 30px rgba(0, 240, 255, 0.25);
+      --shadow-neon-purple: 0 0 30px rgba(168, 85, 247, 0.25);
+      --shadow-neon-gold: 0 0 30px rgba(251, 191, 36, 0.25);
+      
+      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-tech: 'Rajdhani', sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-smooth: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: var(--bg-darkest);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: rgba(0, 240, 255, 0.3);
+      color: #ffffff;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-darkest);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 5px;
+      border: 2px solid var(--bg-darkest);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
+    /* ==========================================================================
+       BACKGROUND AMBIENT ATMOSPHERE
+       ========================================================================== */
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: 0.16;
+      animation: floatOrb 22s infinite ease-in-out alternate;
+    }
+
+    .glow-orb-1 {
+      width: 550px;
+      height: 550px;
+      background: #00f0ff;
+      top: -120px;
+      left: 10%;
+    }
+
+    .glow-orb-2 {
+      width: 650px;
+      height: 650px;
+      background: #9333ea;
+      top: 35%;
+      right: 5%;
+      animation-delay: -6s;
+    }
+
+    .glow-orb-3 {
+      width: 480px;
+      height: 480px;
+      background: #0284c7;
+      bottom: -100px;
+      left: 25%;
+      animation-delay: -12s;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(70px, 50px) scale(1.12); }
+      100% { transform: translate(-50px, 90px) scale(0.92); }
+    }
+
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==========================================================================
+       TOP BANNER (LIVE STATUS)
+       ========================================================================== */
+    .top-banner {
+      background: linear-gradient(90deg, rgba(0, 240, 255, 0.12), rgba(168, 85, 247, 0.12));
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 0;
+      font-size: 0.84rem;
+      text-align: center;
+      position: relative;
+      z-index: 50;
+    }
+
+    .top-banner-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #4ade80;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22c55e;
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(9, 13, 26, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition-normal);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #00f0ff 0%, #9333ea 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #060810;
+      font-size: 1.35rem;
+      font-weight: 900;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+      transition: var(--transition-smooth);
+    }
+
+    .brand-logo:hover .logo-badge {
+      transform: rotate(6deg) scale(1.06);
+      box-shadow: 0 0 28px rgba(168, 85, 247, 0.6);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-sub {
+      font-size: 0.68rem;
+      color: var(--cyan-400);
+      font-family: var(--font-tech);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* Nav Links */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--transition-fast);
+      position: relative;
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #ffffff;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-accent);
+      transition: width var(--transition-normal);
+      border-radius: 2px;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Nav Actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-discord-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--discord-color);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: var(--transition-normal);
+      box-shadow: 0 4px 15px rgba(88, 101, 242, 0.35);
+    }
+
+    .nav-discord-btn:hover {
+      background: var(--discord-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    /* ==========================================================================
+       BUTTON STYLES
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition-normal);
+      border: 1px solid transparent;
+      outline: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient-accent);
+      color: #060810;
+      box-shadow: 0 10px 25px -5px rgba(0, 240, 255, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -5px rgba(168, 85, 247, 0.55);
+    }
+
+    .btn-secondary {
+      background: rgba(15, 21, 39, 0.85);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(25, 34, 60, 0.9);
+      border-color: rgba(0, 240, 255, 0.4);
+      color: var(--cyan-400);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding: 90px 0 75px;
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      padding: 6px 18px;
+      border-radius: var(--radius-full);
+      color: #e9d5ff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      margin-bottom: 24px;
+    }
+
+    .hero-pill-badge i {
+      color: var(--cyan-400);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+      max-width: 950px;
+      margin: 0 auto 22px;
+      color: #ffffff;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #00f0ff 15%, #a855f7 65%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    /* Prominent Server IP Badge Widget */
+    .server-ip-widget {
+      max-width: 520px;
+      margin: 0 auto 40px;
+      background: rgba(15, 21, 39, 0.75);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      border-radius: var(--radius-xl);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 240, 255, 0.15);
+      backdrop-filter: blur(15px);
+      transition: var(--transition-normal);
+    }
+
+    .server-ip-widget:hover {
+      border-color: var(--cyan-400);
+      box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .ip-info-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .ip-icon-box {
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 240, 255, 0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan-400);
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .ip-details-text .ip-heading {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: var(--font-tech);
+    }
+
+    .ip-details-text .ip-address {
+      font-family: var(--font-tech);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .ip-details-text .ip-status-note {
+      font-size: 0.74rem;
+      color: #4ade80;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-copy-main {
+      background: var(--gradient-accent);
+      color: #060810;
+      border: none;
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-fast);
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+    }
+
+    .btn-copy-main:hover {
+      transform: scale(1.04);
+      box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 54px;
+    }
+
+    /* Trust Highlights */
+    .hero-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .feature-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      backdrop-filter: blur(10px);
+      transition: var(--transition-normal);
+    }
+
+    .feature-item:hover {
+      border-color: rgba(0, 240, 255, 0.3);
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(0, 240, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan-400);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .feature-icon.purple {
+      background: rgba(168, 85, 247, 0.1);
+      color: var(--purple-400);
+    }
+
+    .feature-icon.gold {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--gold-400);
+    }
+
+    .feature-text h4 {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .feature-text p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       SECTION HEADER
+       ========================================================================== */
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 55px;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-tech);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--cyan-400);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       RANK TIERS SECTION
+       ========================================================================== */
+    .ranks-section {
+      padding: 60px 0 100px;
+      position: relative;
+    }
+
+    .ranks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    /* Rank Card Base */
+    .rank-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 36px 30px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      backdrop-filter: blur(16px);
+      transition: all var(--transition-smooth);
+      box-shadow: var(--shadow-card);
+    }
+
+    .rank-card:hover {
+      transform: translateY(-8px);
+      background: var(--bg-card-hover);
+    }
+
+    /* Card Tier Badges */
+    .card-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 5px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    .badge-elite {
+      background: rgba(0, 240, 255, 0.15);
+      border: 1px solid var(--cyan-400);
+      color: var(--cyan-300);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    }
+
+    .badge-legend {
+      background: var(--gradient-accent);
+      color: #060810;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+    }
+
+    .badge-custom {
+      background: linear-gradient(135deg, #f59e0b, #ec4899);
+      color: #060810;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+    }
+
+    /* Rank Header */
+    .rank-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .rank-icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      transition: var(--transition-smooth);
+    }
+
+    .rank-card:hover .rank-icon-wrap {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .elite-icon {
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      color: var(--cyan-400);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    }
+
+    .legend-icon {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: var(--purple-400);
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+    }
+
+    .custom-icon {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: var(--gold-400);
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
+    }
+
+    .rank-name {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .rank-tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      min-height: 40px;
+    }
+
+    /* Price Box */
+    .rank-price-box {
+      padding: 16px 0;
+      margin-bottom: 24px;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .price-currency {
+      font-family: var(--font-tech);
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .price-duration {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-left: 6px;
+    }
+
+    /* Perks List */
+    .perks-list {
+      list-style: none;
+      margin-bottom: 32px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .perk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+
+    .perk-icon {
+      margin-top: 3px;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .card-elite .perk-icon { color: var(--cyan-400); }
+    .card-legend .perk-icon { color: var(--purple-400); }
+    .card-custom .perk-icon { color: var(--gold-400); }
+
+    .perk-highlight {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* Purchase Buttons */
+    .btn-purchase {
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 1.02rem;
+      font-weight: 800;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition-normal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid transparent;
+      outline: none;
+    }
+
+    .btn-purchase-elite {
+      background: rgba(0, 240, 255, 0.12);
+      color: var(--cyan-400);
+      border-color: rgba(0, 240, 255, 0.4);
+    }
+    .btn-purchase-elite:hover {
+      background: var(--cyan-400);
+      color: #060810;
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+    }
+
+    .btn-purchase-legend {
+      background: var(--gradient-accent);
+      color: #060810;
+      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.45);
+    }
+    .btn-purchase-legend:hover {
+      box-shadow: 0 12px 30px rgba(0, 240, 255, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .btn-purchase-custom {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(236, 72, 153, 0.2));
+      color: #fde047;
+      border-color: rgba(245, 158, 11, 0.5);
+    }
+    .btn-purchase-custom:hover {
+      background: linear-gradient(135deg, #f59e0b, #ec4899);
+      color: #060810;
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
+    }
+
+    /* Card Specific Borders & Accents */
+    .card-elite {
+      border-color: rgba(0, 240, 255, 0.25);
+    }
+    .card-elite:hover {
+      border-color: var(--cyan-400);
+      box-shadow: var(--shadow-neon-cyan);
+    }
+
+    .card-legend {
+      border-color: rgba(168, 85, 247, 0.4);
+      background: linear-gradient(180deg, rgba(25, 20, 50, 0.75) 0%, rgba(15, 21, 39, 0.85) 100%);
+      transform: scale(1.03);
+    }
+    .card-legend:hover {
+      border-color: var(--purple-400);
+      box-shadow: var(--shadow-neon-purple);
+      transform: scale(1.03) translateY(-8px);
+    }
+
+    .card-custom {
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+    .card-custom:hover {
+      border-color: var(--gold-400);
+      box-shadow: var(--shadow-neon-gold);
+    }
+
+    /* ==========================================================================
+       SUPPORT & FAQ SECTION
+       ========================================================================== */
+    .support-section {
+      padding: 90px 0;
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(9, 13, 26, 0.5);
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .faq-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: #ffffff;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition-normal);
+    }
+
+    .faq-item:hover {
+      border-color: rgba(0, 240, 255, 0.3);
+    }
+
+    .faq-question {
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffffff;
+      user-select: none;
+    }
+
+    .faq-question i {
+      color: var(--cyan-400);
+      transition: transform var(--transition-normal);
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 22px 20px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      display: none;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* Community Discord Card */
+    .community-box {
+      background: linear-gradient(135deg, rgba(25, 32, 65, 0.9), rgba(15, 21, 39, 0.95));
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: var(--radius-xl);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    .community-box::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -40%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.25), transparent 70%);
+      pointer-events: none;
+    }
+
+    .community-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .community-box p {
+      color: var(--text-muted);
+      margin-bottom: 26px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .support-badges {
+      display: flex;
+      gap: 12px;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    .support-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       CHECKOUT MODAL
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(4, 7, 15, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition-smooth);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      border-radius: var(--radius-xl);
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 240, 255, 0.2);
+      transform: scale(0.92) translateY(20px);
+      transition: all var(--transition-smooth);
+      position: relative;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: var(--bg-surface);
+      z-index: 10;
+    }
+
+    .modal-header-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-rank-badge {
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .btn-close-modal {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .btn-close-modal:hover {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .modal-body {
+      padding: 28px;
+    }
+
+    /* Selected Item Summary in Modal */
+    .order-summary {
+      background: rgba(9, 13, 26, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .summary-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .summary-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .summary-name {
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+
+    .summary-server {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .summary-price {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--cyan-400);
+      text-align: right;
+    }
+
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+    }
+
+    .form-label span {
+      color: var(--cyan-400);
+    }
+
+    /* Username Input with Live Minecraft Avatar */
+    .input-avatar-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .mc-avatar-preview {
+      position: absolute;
+      left: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #1e293b;
+      image-rendering: pixelated;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      object-fit: cover;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(9, 13, 26, 0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px 14px 54px;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+      transition: var(--transition-fast);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--cyan-400);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+    }
+
+    .input-hint {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      margin-top: 6px;
+    }
+
+    /* Payment Method Selector */
+    .payment-methods-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .payment-option {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .payment-option input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .payment-box {
+      background: rgba(9, 13, 26, 0.85);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      transition: var(--transition-fast);
+    }
+
+    .payment-box i {
+      font-size: 1.35rem;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+    }
+
+    .payment-box span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .payment-option input:checked + .payment-box {
+      border-color: var(--cyan-400);
+      background: rgba(0, 240, 255, 0.1);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    }
+
+    .payment-option input:checked + .payment-box i,
+    .payment-option input:checked + .payment-box span {
+      color: var(--cyan-400);
+    }
+
+    /* Dynamic Payment Panel */
+    .payment-details-panel {
+      background: rgba(9, 13, 26, 0.55);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .payment-details-panel .detail-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .payment-details-panel .detail-row strong {
+      color: #ffffff;
+    }
+
+    .terms-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      margin-top: 16px;
+      user-select: none;
+    }
+
+    .terms-label input {
+      margin-top: 3px;
+      accent-color: var(--cyan-400);
+      cursor: pointer;
+    }
+
+    .btn-submit-order {
+      width: 100%;
+      margin-top: 24px;
+      padding: 16px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      color: #060810;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition-normal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(0, 240, 255, 0.35);
+    }
+
+    .btn-submit-order:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(168, 85, 247, 0.5);
+    }
+
+    .btn-submit-order:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      filter: grayscale(0.5);
+    }
+
+    /* Success View inside Modal */
+    .checkout-success-view {
+      display: none;
+      text-align: center;
+      padding: 30px 20px 20px;
+    }
+
+    .success-icon-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.15);
+      border: 2px solid #22c55e;
+      color: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 20px;
+      animation: scalePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes scalePop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .success-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .success-text {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 420px;
+      margin: 0 auto 24px;
+    }
+
+    .receipt-box {
+      background: rgba(9, 13, 26, 0.85);
+      border: 1px dashed rgba(34, 197, 94, 0.4);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      text-align: left;
+      margin-bottom: 24px;
+      font-size: 0.86rem;
+    }
+
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+    }
+
+    .receipt-row strong {
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       TOAST NOTIFICATION
+       ========================================================================== */
+    .toast-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: rgba(15, 21, 39, 0.96);
+      border: 1px solid var(--cyan-400);
+      color: #ffffff;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 240, 255, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transform: translateX(120%);
+      transition: transform var(--transition-smooth);
+      pointer-events: auto;
+    }
+
+    .toast.active {
+      transform: translateX(0);
+    }
+
+    .toast i {
+      color: var(--cyan-400);
+      font-size: 1.1rem;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: #03050a;
+      border-top: 1px solid var(--border-subtle);
+      padding: 65px 0 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 14px;
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan-400);
+      transform: translateX(3px);
+      display: inline-block;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.84rem;
+      color: var(--text-dim);
+    }
+
+    .footer-disclaimer {
+      max-width: 600px;
+      line-height: 1.4;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+
+    .social-link:hover {
+      background: var(--cyan-400);
+      color: #060810;
+      border-color: var(--cyan-400);
+      transform: translateY(-2px);
+    }
+
+    .social-link.discord-link:hover {
+      background: var(--discord-color);
+      color: #ffffff;
+      border-color: var(--discord-color);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .ranks-grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      .card-legend {
+        transform: scale(1);
+      }
+      .card-legend:hover {
+        transform: translateY(-8px);
+      }
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(9, 13, 26, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--border-subtle);
+        transform: translateY(-150%);
+        transition: transform var(--transition-smooth);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+      }
+      .nav-menu.active {
+        transform: translateY(0);
+      }
+      .hero-section {
+        padding: 60px 0 50px;
+      }
+      .server-ip-widget {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+      }
+      .ip-info-group {
+        flex-direction: column;
+        text-align: center;
+      }
+      .btn-copy-main {
+        width: 100%;
+        justify-content: center;
+      }
+      .modal-card {
+        padding: 0;
+      }
+      .modal-header, .modal-body {
+        padding: 20px;
+      }
+      .payment-methods-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glowing Background Atmosphere -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+  </div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Top Status Announcement Bar -->
+  <div class="top-banner">
+    <div class="container top-banner-content">
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>SERVER ONLINE</span>
+      </div>
+      <span>⚡ <strong>INSTANT ACTIVATION:</strong> In-game rank delivery in under 60 seconds across all realms!</span>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" id="brand-logo-link" aria-label="RGS Networks Home">
+        <div class="logo-badge">
+          <i class="fa-solid fa-gamepad"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">RGS <span>NETWORKS</span></span>
+          <span class="brand-sub">Official Rank Store</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link active" id="nav-home"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#ranks" class="nav-link" id="nav-ranks"><i class="fa-solid fa-crown"></i> Ranks</a></li>
+          <li><a href="#support" class="nav-link" id="nav-support"><i class="fa-solid fa-headset"></i> Support</a></li>
+        </ul>
+      </nav>
+
+      <!-- Discord CTA & Mobile Menu Toggle -->
+      <div class="nav-actions">
+        <a href="https://discord.gg/P2uw9eH66" target="_blank" rel="noopener noreferrer" class="nav-discord-btn" id="nav-btn-discord">
+          <i class="fa-brands fa-discord"></i>
+          <span>Discord</span>
+        </a>
+        <button class="mobile-toggle" id="btn-mobile-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars" id="menu-icon"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="container">
+        
+        <div class="hero-pill-badge">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Official RGS Networks Store</span>
+        </div>
+
+        <h1 class="hero-title">
+          Elevate Your Gameplay on <span class="gradient-text">RGS Networks</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Unlock exclusive chat prefixes, flight abilities, high-tier kits, and unlimited home sets. 
+          Stand out from the crowd and dominate the server with instant automated perk activation.
+        </p>
+
+        <!-- Prominent Server IP Badge with Click-to-Copy -->
+        <div class="server-ip-widget" id="server-ip-box">
+          <div class="ip-info-group">
+            <div class="ip-icon-box">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <div class="ip-details-text">
+              <div class="ip-heading">Server IP Address</div>
+              <div class="ip-address" id="server-ip-text">rgs.mcc.lk</div>
+              <div class="ip-status-note">
+                <span class="status-dot"></span>
+                <span>🟢 148 Players Online • 1.16 - 1.21+</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn-copy-main" id="btn-copy-hero-ip" title="Click to copy server IP address">
+            <i class="fa-regular fa-copy" id="hero-copy-icon"></i>
+            <span id="hero-copy-label">Copy IP</span>
+          </button>
+        </div>
+
+        <!-- Hero CTA Group -->
+        <div class="hero-cta-group">
+          <a href="#ranks" class="btn btn-primary" id="hero-cta-ranks">
+            <i class="fa-solid fa-gem"></i> View Server Ranks
+          </a>
+          <a href="#support" class="btn btn-secondary" id="hero-cta-support">
+            <i class="fa-solid fa-circle-question"></i> How It Works
+          </a>
+        </div>
+
+        <!-- Trust Highlights -->
+        <div class="hero-features">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fa-solid fa-bolt-lightning"></i>
+            </div>
+            <div class="feature-text">
+              <h4>Instant Delivery</h4>
+              <p>Ranks activate in-game within 60 seconds automatically</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon purple">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="feature-text">
+              <h4>Secure Payment</h4>
+              <p>Cards, Bank Transfer & Sri Lankan Mobile Reload</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon gold">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="feature-text">
+              <h4>Permanent Perks</h4>
+              <p>One-time payment for lifetime rank status</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RANK TIERS SECTION -->
+    <section class="ranks-section" id="ranks">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-gem"></i> Upgrade Your Experience</span>
+          <h2 class="section-title">Select Your Server Rank</h2>
+          <p class="section-desc">
+            Choose the tier that fits your playstyle. All ranks are permanent and synchronize automatically with your Minecraft account.
+          </p>
+        </div>
+
+        <div class="ranks-grid">
+          
+          <!-- 1. ELITE RANK (Rs. 500) -->
+          <article class="rank-card card-elite" id="card-elite">
+            <span class="card-badge badge-elite">Starter Tier</span>
+            
+            <div class="rank-header">
+              <div class="rank-icon-wrap elite-icon">
+                <i class="fa-solid fa-shield"></i>
+              </div>
+              <h3 class="rank-name">Elite Rank</h3>
+              <p class="rank-tagline">Essential perks for dedicated survivors & builders</p>
+            </div>
+
+            <div class="rank-price-box">
+              <span class="price-currency">Rs.</span>
+              <span class="price-amount">500</span>
+              <span class="price-duration">/ One-time</span>
+            </div>
+
+            <ul class="perks-list">
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span><strong class="perk-highlight">Custom Chat Prefix</strong> ([Elite] in Cyan)</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span><strong class="perk-highlight">Basic Kit</strong> (Iron & Diamond Gear + Tools)</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span><strong class="perk-highlight">1x Home Set</strong> (<code style="color:var(--cyan-400)">/sethome</code> teleport point)</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span>Priority Server Join Queue access</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span>Access to <strong>/feed</strong> command (15m cooldown)</span>
+              </li>
+            </ul>
+
+            <button class="btn btn-purchase btn-purchase-elite" 
+                    id="btn-buy-elite" 
+                    data-rank="Elite Rank" 
+                    data-price="500" 
+                    data-tier="Starter Tier"
+                    data-theme="elite">
+              <i class="fa-solid fa-cart-shopping"></i> Purchase Rank
+            </button>
+          </article>
+
+          <!-- 2. LEGEND RANK (Rs. 1000) -->
+          <article class="rank-card card-legend" id="card-legend">
+            <span class="card-badge badge-legend"><i class="fa-solid fa-fire"></i> Most Popular</span>
+            
+            <div class="rank-header">
+              <div class="rank-icon-wrap legend-icon">
+                <i class="fa-solid fa-crown"></i>
+              </div>
+              <h3 class="rank-name">Legend Rank</h3>
+              <p class="rank-tagline">The ultimate balance of flight, kits, and prestige</p>
+            </div>
+
+            <div class="rank-price-box">
+              <span class="price-currency">Rs.</span>
+              <span class="price-amount">1000</span>
+              <span class="price-duration">/ One-time</span>
+            </div>
+
+            <ul class="perks-list">
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span><strong class="perk-highlight">Fly in Lobby</strong> & Hub (<code style="color:var(--purple-400)">/fly</code> ability)</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span><strong class="perk-highlight">Extra Home Sets</strong> (Up to 5 total /sethomes)</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span><strong class="perk-highlight">Kit Legend Weekly</strong> (Enchanted Diamond Armor & Weapons)</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span>Radiant Purple Chat Prefix & Colored Name</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span>Access to <strong>/heal</strong> & <strong>/feed</strong> (5m cooldown)</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span>Keep XP on Death in Survival Gamemodes</span>
+              </li>
+            </ul>
+
+            <button class="btn btn-purchase btn-purchase-legend" 
+                    id="btn-buy-legend" 
+                    data-rank="Legend Rank" 
+                    data-price="1000" 
+                    data-tier="Most Popular"
+                    data-theme="legend">
+              <i class="fa-solid fa-bolt"></i> Purchase Rank
+            </button>
+          </article>
+
+          <!-- 3. CUSTOM RANK (Rs. 2500) -->
+          <article class="rank-card card-custom" id="card-custom">
+            <span class="card-badge badge-custom"><i class="fa-solid fa-star"></i> Ultimate VIP</span>
+            
+            <div class="rank-header">
+              <div class="rank-icon-wrap custom-icon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+              <h3 class="rank-name">Custom Rank</h3>
+              <p class="rank-tagline">Bespoke rank tailored specifically to your identity</p>
+            </div>
+
+            <div class="rank-price-box">
+              <span class="price-currency">Rs.</span>
+              <span class="price-amount">2500</span>
+              <span class="price-duration">/ One-time</span>
+            </div>
+
+            <ul class="perks-list">
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span><strong class="perk-highlight">Fully Custom Prefix</strong> (Any Text & Hex Gradient)</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span><strong class="perk-highlight">Unlimited Homes</strong> (Unlimited /sethome points)</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span><strong class="perk-highlight">Priority Support</strong> via Dedicated Discord Ticket</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span>Full Flight Mode in Lobby, Hub & Sandbox</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span>Custom In-Game Join Announcement Message</span>
+              </li>
+              <li class="perk-item">
+                <i class="fa-solid fa-circle-check perk-icon"></i>
+                <span>Access to <strong>/workbench</strong>, <strong>/anvil</strong> & <strong>/hat</strong></span>
+              </li>
+            </ul>
+
+            <button class="btn btn-purchase btn-purchase-custom" 
+                    id="btn-buy-custom" 
+                    data-rank="Custom Rank" 
+                    data-price="2500" 
+                    data-tier="Ultimate VIP"
+                    data-theme="custom">
+              <i class="fa-solid fa-gem"></i> Purchase Rank
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT & FAQ SECTION -->
+    <section class="support-section" id="support">
+      <div class="container">
+        <div class="support-grid">
+          
+          <!-- FAQ Column -->
+          <div>
+            <h3 class="faq-title">Frequently Asked Questions</h3>
+            <div class="faq-list">
+              
+              <div class="faq-item active">
+                <div class="faq-question">
+                  <span>How long does rank activation take?</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  Rank delivery is completely automated! Once your payment is verified, your rank perks, chat prefix, and permissions will be applied to your account on <code>rgs.mcc.lk</code> in under 60 seconds.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span>What payment methods are supported in Sri Lanka?</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  We proudly support all major Visa & Mastercard cards, Direct Bank Transfers (Commercial Bank, Sampath, HNB, BOC), and Mobile Reload (Dialog, Mobitel, EzCash, mCash).
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span>Can I upgrade from Elite to Legend later?</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  Yes! You only pay the difference when upgrading between tiers. Open a support ticket on our Discord server and our staff will assist you with an upgrade discount.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span>How do I configure my Custom Rank prefix?</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  After purchasing the Custom Rank, our automated bot prompts you on Discord or our server administrators will help you set up your custom prefix text, gradient colors, and join message.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Discord Community Card -->
+          <div>
+            <div class="community-box">
+              <div class="feature-icon purple" style="margin-bottom: 20px;">
+                <i class="fa-brands fa-discord" style="font-size: 1.6rem;"></i>
+              </div>
+              <h3>Need Help or Support?</h3>
+              <p>
+                Our 24/7 dedicated support staff is ready to assist you with payments, perk questions, or custom server requests on our official Discord server.
+              </p>
+              
+              <a href="https://discord.gg/P2uw9eH66" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-join-discord-support">
+                <i class="fa-brands fa-discord"></i> Join Discord Server
+              </a>
+
+              <div class="support-badges">
+                <span class="support-pill"><i class="fa-solid fa-clock"></i> &lt; 5 Min Response</span>
+                <span class="support-pill"><i class="fa-solid fa-users"></i> Active Community</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-header-info">
+          <span class="modal-rank-badge badge-legend" id="modal-badge-display">Most Popular</span>
+          <h3 class="modal-title" id="modal-title">Rank Checkout</h3>
+        </div>
+        <button class="btn-close-modal" id="btn-close-modal" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        
+        <!-- Checkout Form View -->
+        <form id="checkout-form">
+          <!-- Order Summary Card -->
+          <div class="order-summary">
+            <div class="summary-left">
+              <div class="summary-icon legend-icon" id="summary-icon-box">
+                <i class="fa-solid fa-crown" id="summary-icon"></i>
+              </div>
+              <div>
+                <div class="summary-name" id="summary-rank-name">Legend Rank</div>
+                <div class="summary-server">RGS Networks • rgs.mcc.lk</div>
+              </div>
+            </div>
+            <div class="summary-price" id="summary-price-display">Rs. 1000</div>
+          </div>
+
+          <!-- Step 1: Minecraft In-Game Username -->
+          <div class="form-group">
+            <label for="mc-username" class="form-label">
+              Minecraft Username <span>*</span>
+            </label>
+            <div class="input-avatar-wrap">
+              <img src="https://mc-heads.net/avatar/Steve/100" alt="Minecraft Skin Head" class="mc-avatar-preview" id="mc-avatar-preview">
+              <input type="text" 
+                     id="mc-username" 
+                     class="form-input" 
+                     placeholder="e.g. GamerPro_99" 
+                     required 
+                     autocomplete="off" 
+                     maxlength="16">
+            </div>
+            <p class="input-hint">Enter your exact in-game IGN to receive your rank perks.</p>
+          </div>
+
+          <!-- Step 2: Payment Method Selection -->
+          <div class="form-group">
+            <label class="form-label">
+              Choose Payment Method <span>*</span>
+            </label>
+            <div class="payment-methods-grid">
+              
+              <label class="payment-option">
+                <input type="radio" name="payment_method" value="card" checked>
+                <div class="payment-box">
+                  <i class="fa-solid fa-credit-card"></i>
+                  <span>Card</span>
+                </div>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="payment_method" value="bank">
+                <div class="payment-box">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <span>Bank Transfer</span>
+                </div>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="payment_method" value="mobile">
+                <div class="payment-box">
+                  <i class="fa-solid fa-mobile-screen-button"></i>
+                  <span>Mobile Reload</span>
+                </div>
+              </label>
+
+            </div>
+
+            <!-- Dynamic Payment Instructions Panel -->
+            <div class="payment-details-panel" id="payment-details-panel">
+              <!-- Rendered via JavaScript -->
+            </div>
+          </div>
+
+          <!-- Agreement Checkbox -->
+          <label class="terms-label">
+            <input type="checkbox" id="agree-terms" required>
+            <span>I agree to RGS Networks Store Terms and confirm this rank is for the provided Minecraft account.</span>
+          </label>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-submit-order" id="btn-submit-order">
+            <span id="btn-submit-text"><i class="fa-solid fa-lock"></i> Pay Rs. 1,000</span>
+          </button>
+        </form>
+
+        <!-- Success Alert / Receipt View (Hidden until submit) -->
+        <div class="checkout-success-view" id="checkout-success-view">
+          <div class="success-icon-wrap">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h3 class="success-title">Order Successful!</h3>
+          <p class="success-text">
+            Thank you for supporting RGS Networks! Your rank has been dispatched to <strong>rgs.mcc.lk</strong>.
+          </p>
+
+          <div class="receipt-box">
+            <div class="receipt-row">
+              <span>Transaction ID:</span>
+              <strong id="receipt-tx-id">#RGS-849204</strong>
+            </div>
+            <div class="receipt-row">
+              <span>Minecraft IGN:</span>
+              <strong id="receipt-username">Steve</strong>
+            </div>
+            <div class="receipt-row">
+              <span>Rank Purchased:</span>
+              <strong id="receipt-rank">Legend Rank</strong>
+            </div>
+            <div class="receipt-row">
+              <span>Total Paid:</span>
+              <strong id="receipt-amount" style="color:var(--cyan-400);">Rs. 1,000</strong>
+            </div>
+            <div class="receipt-row">
+              <span>Payment Method:</span>
+              <strong id="receipt-method">Card Payment</strong>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="btn-done-success" style="width: 100%;">
+            <i class="fa-solid fa-gamepad"></i> Return to Store
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo" style="margin-bottom: 8px;">
+            <div class="logo-badge" style="width: 36px; height: 36px; font-size: 1.1rem;">
+              <i class="fa-solid fa-gamepad"></i>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title" style="font-size: 1.15rem;">RGS <span>NETWORKS</span></span>
+            </div>
+          </a>
+          <p>
+            The premier Sri Lankan Minecraft server network delivering next-generation gamemodes, custom survival realms, competitive PvP, and high performance gameplay on <strong>rgs.mcc.lk</strong>.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#ranks">Server Ranks</a></li>
+            <li><a href="#support">Live Support</a></li>
+            <li><a href="https://discord.gg/P2uw9eH66" target="_blank">Discord Community</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Server Info</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="copyServerIP()">IP: rgs.mcc.lk</a></li>
+            <li><a href="javascript:void(0)">Version: 1.16 - 1.21+</a></li>
+            <li><a href="javascript:void(0)">Location: Sri Lanka / Asia</a></li>
+            <li><a href="javascript:void(0)">Uptime: 99.98%</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect with Us</h4>
+          <ul class="footer-links" style="margin-bottom: 16px;">
+            <li><a href="https://discord.gg/P2uw9eH66" target="_blank">Discord: discord.gg/P2uw9eH66</a></li>
+            <li><a href="mailto:support@rgsnetworks.net">support@rgsnetworks.net</a></li>
+          </ul>
+          <div class="footer-socials">
+            <a href="https://discord.gg/P2uw9eH66" target="_blank" rel="noopener noreferrer" class="social-link discord-link" title="Discord" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" title="YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link" title="TikTok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          Copyright &copy; 2026 <strong>RGS Networks</strong>. All rights reserved. | <a href="https://discord.gg/P2uw9eH66" target="_blank" style="color:var(--cyan-400); text-decoration:none;">Join Discord</a>
+        </div>
+        <div class="footer-disclaimer">
+          Not an official Minecraft product. We are not approved by or associated with Mojang Studios or Microsoft.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================== -->
+  <script>
+    // Server Configuration & Rank Data
+    const SERVER_IP = "rgs.mcc.lk";
+
+    const RANK_CONFIGS = {
+      "Elite Rank": {
+        name: "Elite Rank",
+        price: 500,
+        tier: "Starter Tier",
+        theme: "elite",
+        badgeClass: "badge-elite",
+        iconClass: "fa-solid fa-shield",
+        iconBoxClass: "elite-icon"
+      },
+      "Legend Rank": {
+        name: "Legend Rank",
+        price: 1000,
+        tier: "Most Popular",
+        theme: "legend",
+        badgeClass: "badge-legend",
+        iconClass: "fa-solid fa-crown",
+        iconBoxClass: "legend-icon"
+      },
+      "Custom Rank": {
+        name: "Custom Rank",
+        price: 2500,
+        tier: "Ultimate VIP",
+        theme: "custom",
+        badgeClass: "badge-custom",
+        iconClass: "fa-solid fa-wand-magic-sparkles",
+        iconBoxClass: "custom-icon"
+      }
+    };
+
+    let selectedRank = RANK_CONFIGS["Legend Rank"];
+
+    // DOM References
+    const modalOverlay = document.getElementById('checkout-modal');
+    const btnCloseModal = document.getElementById('btn-close-modal');
+    const checkoutForm = document.getElementById('checkout-form');
+    const checkoutSuccessView = document.getElementById('checkout-success-view');
+    const btnDoneSuccess = document.getElementById('btn-done-success');
+    const mcUsernameInput = document.getElementById('mc-username');
+    const mcAvatarPreview = document.getElementById('mc-avatar-preview');
+    const paymentDetailsPanel = document.getElementById('payment-details-panel');
+    const btnSubmitOrder = document.getElementById('btn-submit-order');
+    const btnSubmitText = document.getElementById('btn-submit-text');
+
+    const modalBadgeDisplay = document.getElementById('modal-badge-display');
+    const summaryRankName = document.getElementById('summary-rank-name');
+    const summaryPriceDisplay = document.getElementById('summary-price-display');
+    const summaryIconBox = document.getElementById('summary-icon-box');
+    const summaryIcon = document.getElementById('summary-icon');
+
+    const toastContainer = document.getElementById('toast-container');
+    const btnCopyHeroIp = document.getElementById('btn-copy-hero-ip');
+    const heroCopyIcon = document.getElementById('hero-copy-icon');
+    const heroCopyLabel = document.getElementById('hero-copy-label');
+
+    const mobileToggle = document.getElementById('btn-mobile-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    // -------------------------------------------------------------
+    // Toast Notification Utility
+    // -------------------------------------------------------------
+    function showToast(message, icon = 'fa-solid fa-circle-check') {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `<i class="${icon}"></i> <span>${message}</span>`;
+      toastContainer.appendChild(toast);
+
+      requestAnimationFrame(() => {
+        toast.classList.add('active');
+      });
+
+      setTimeout(() => {
+        toast.classList.remove('active');
+        setTimeout(() => toast.remove(), 400);
+      }, 3500);
+    }
+
+    // -------------------------------------------------------------
+    // Click-to-Copy Server IP (rgs.mcc.lk)
+    // -------------------------------------------------------------
+    function copyServerIP() {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(SERVER_IP).then(() => {
+          showToast(`Copied Server IP: <strong>${SERVER_IP}</strong> to clipboard!`, 'fa-solid fa-copy');
+          updateCopyButtonState();
+        }).catch(() => fallbackCopy());
+      } else {
+        fallbackCopy();
+      }
+    }
+
+    function fallbackCopy() {
+      const tempInput = document.createElement('input');
+      tempInput.value = SERVER_IP;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      showToast(`Copied Server IP: <strong>${SERVER_IP}</strong>!`, 'fa-solid fa-copy');
+      updateCopyButtonState();
+    }
+
+    function updateCopyButtonState() {
+      if (heroCopyIcon && heroCopyLabel) {
+        heroCopyIcon.className = 'fa-solid fa-check';
+        heroCopyIcon.style.color = '#4ade80';
+        heroCopyLabel.textContent = 'Copied!';
+        setTimeout(() => {
+          heroCopyIcon.className = 'fa-regular fa-copy';
+          heroCopyIcon.style.color = '';
+          heroCopyLabel.textContent = 'Copy IP';
+        }, 2200);
+      }
+    }
+
+    if (btnCopyHeroIp) {
+      btnCopyHeroIp.addEventListener('click', copyServerIP);
+    }
+
+    // -------------------------------------------------------------
+    // Mobile Navigation Menu Toggle
+    // -------------------------------------------------------------
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('active');
+        menuIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+      });
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          menuIcon.className = 'fa-solid fa-bars';
+        });
+      });
+    }
+
+    // -------------------------------------------------------------
+    // Interactive Checkout Modal Logic
+    // -------------------------------------------------------------
+    function openCheckoutModal(rankName) {
+      const rankData = RANK_CONFIGS[rankName] || RANK_CONFIGS["Legend Rank"];
+      selectedRank = rankData;
+
+      // Update Modal content dynamically
+      summaryRankName.textContent = rankData.name;
+      summaryPriceDisplay.textContent = `Rs. ${rankData.price.toLocaleString()}`;
+      modalBadgeDisplay.textContent = rankData.tier;
+      modalBadgeDisplay.className = `modal-rank-badge ${rankData.badgeClass}`;
+      
+      summaryIconBox.className = `summary-icon ${rankData.iconBoxClass}`;
+      summaryIcon.className = rankData.iconClass;
+
+      // Reset form states
+      checkoutForm.style.display = 'block';
+      checkoutSuccessView.style.display = 'none';
+      checkoutForm.reset();
+      btnSubmitOrder.disabled = false;
+      btnSubmitText.innerHTML = `<i class="fa-solid fa-lock"></i> Pay Rs. ${rankData.price.toLocaleString()}`;
+
+      // Reset Avatar
+      mcAvatarPreview.src = "https://mc-heads.net/avatar/Steve/100";
+
+      // Initialize default payment details panel (Card)
+      updatePaymentPanel('card');
+
+      // Open modal with smooth animation
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      setTimeout(() => {
+        mcUsernameInput.focus();
+      }, 150);
+    }
+
+    function closeCheckoutModal() {
+      modalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Attach click listeners to all rank buttons
+    document.querySelectorAll('.btn-purchase').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const rankName = btn.getAttribute('data-rank');
+        openCheckoutModal(rankName);
+      });
+    });
+
+    if (btnCloseModal) {
+      btnCloseModal.addEventListener('click', closeCheckoutModal);
+    }
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        closeCheckoutModal();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+        closeCheckoutModal();
+      }
+    });
+
+    if (btnDoneSuccess) {
+      btnDoneSuccess.addEventListener('click', closeCheckoutModal);
+    }
+
+    // -------------------------------------------------------------
+    // Live Minecraft Avatar Fetcher
+    // -------------------------------------------------------------
+    let avatarDebounceTimer;
+    mcUsernameInput.addEventListener('input', (e) => {
+      clearTimeout(avatarDebounceTimer);
+      const username = e.target.value.trim();
+      
+      if (!username) {
+        mcAvatarPreview.src = "https://mc-heads.net/avatar/Steve/100";
+        return;
+      }
+
+      avatarDebounceTimer = setTimeout(() => {
+        // Fetch head from MC-Heads API (standard for Minecraft stores)
+        mcAvatarPreview.src = `https://mc-heads.net/avatar/${encodeURIComponent(username)}/100`;
+        
+        mcAvatarPreview.onerror = () => {
+          // Fallback if needed
+          mcAvatarPreview.src = `https://minotar.net/helm/${encodeURIComponent(username)}/100`;
+        };
+      }, 350);
+    });
+
+    // -------------------------------------------------------------
+    // Dynamic Payment Methods Details Panel
+    // -------------------------------------------------------------
+    function updatePaymentPanel(method) {
+      if (method === 'card') {
+        paymentDetailsPanel.innerHTML = `
+          <div class="detail-row">
+            <span>Accepted Cards:</span>
+            <strong>Visa, Mastercard, Amex</strong>
+          </div>
+          <div class="detail-row">
+            <span>Processing Fee:</span>
+            <strong style="color:#4ade80;">Rs. 0 (Free)</strong>
+          </div>
+          <div style="margin-top:8px; font-size:0.8rem; color:var(--text-muted);">
+            <i class="fa-solid fa-lock" style="color:var(--cyan-400)"></i> Encrypted 256-bit SSL secure payment processing.
+          </div>
+        `;
+      } else if (method === 'bank') {
+        paymentDetailsPanel.innerHTML = `
+          <div class="detail-row">
+            <span>Bank:</span>
+            <strong>Commercial Bank of Ceylon / HNB</strong>
+          </div>
+          <div class="detail-row">
+            <span>Account Name:</span>
+            <strong>RGS NETWORKS PVT LTD</strong>
+          </div>
+          <div class="detail-row">
+            <span>Account No:</span>
+            <strong style="color:var(--cyan-400);">8019482012</strong>
+          </div>
+          <div class="detail-row">
+            <span>Branch:</span>
+            <strong>Colombo Main Branch</strong>
+          </div>
+          <div style="margin-top:8px; font-size:0.78rem; color:var(--text-muted);">
+            *Use your Minecraft IGN as the payment reference note.
+          </div>
+        `;
+      } else if (method === 'mobile') {
+        paymentDetailsPanel.innerHTML = `
+          <div class="detail-row">
+            <span>Supported Carriers:</span>
+            <strong>Dialog, Mobitel, Hutch, Airtel</strong>
+          </div>
+          <div class="detail-row">
+            <span>Wallets:</span>
+            <strong>EzCash / mCash / Direct Reload</strong>
+          </div>
+          <div class="detail-row">
+            <span>Merchant Number:</span>
+            <strong style="color:var(--cyan-400);">077 123 4567</strong>
+          </div>
+          <div style="margin-top:8px; font-size:0.78rem; color:var(--text-muted);">
+            *Send exact amount with your IGN as reference message.
+          </div>
+        `;
+      }
+    }
+
+    document.querySelectorAll('input[name="payment_method"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        updatePaymentPanel(e.target.value);
+      });
+    });
+
+    // -------------------------------------------------------------
+    // Checkout Form Submission & Celebration
+    // -------------------------------------------------------------
+    checkoutForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const username = mcUsernameInput.value.trim();
+      if (!username) {
+        showToast('Please enter your Minecraft username!', 'fa-solid fa-triangle-exclamation');
+        mcUsernameInput.focus();
+        return;
+      }
+
+      const selectedMethodRadio = document.querySelector('input[name="payment_method"]:checked');
+      const paymentMethod = selectedMethodRadio ? selectedMethodRadio.value : 'card';
+      
+      const methodNames = {
+        'card': 'Credit / Debit Card',
+        'bank': 'Direct Bank Transfer',
+        'mobile': 'Mobile Reload / Wallet'
+      };
+
+      // Loading state simulation
+      btnSubmitOrder.disabled = true;
+      btnSubmitText.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Processing Order...`;
+
+      setTimeout(() => {
+        // Generate realistic transaction ID
+        const randomTxId = '#RGS-' + Math.floor(100000 + Math.random() * 900000);
+
+        // Populate receipt details
+        document.getElementById('receipt-tx-id').textContent = randomTxId;
+        document.getElementById('receipt-username').textContent = username;
+        document.getElementById('receipt-rank').textContent = selectedRank.name;
+        document.getElementById('receipt-amount').textContent = `Rs. ${selectedRank.price.toLocaleString()}`;
+        document.getElementById('receipt-method').textContent = methodNames[paymentMethod];
+
+        // Switch to success view
+        checkoutForm.style.display = 'none';
+        checkoutSuccessView.style.display = 'block';
+
+        // Trigger celebratory confetti burst
+        if (typeof confetti === 'function') {
+          confetti({
+            particleCount: 80,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#00f0ff', '#a855f7', '#fbbf24', '#ffffff']
+          });
+
+          setTimeout(() => {
+            confetti({
+              particleCount: 45,
+              angle: 60,
+              spread: 55,
+              origin: { x: 0 },
+              colors: ['#00f0ff', '#a855f7']
+            });
+            confetti({
+              particleCount: 45,
+              angle: 120,
+              spread: 55,
+              origin: { x: 1 },
+              colors: ['#00f0ff', '#fbbf24']
+            });
+          }, 250);
+        }
+
+        showToast(`Congratulations ${username}! ${selectedRank.name} purchased successfully!`, 'fa-solid fa-circle-check');
+      }, 1200);
+    });
+
+    // -------------------------------------------------------------
+    // FAQ Accordion Toggle
+    // -------------------------------------------------------------
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close other accordion items
+        document.querySelectorAll('.faq-item').forEach(other => other.classList.remove('active'));
+        
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // -------------------------------------------------------------
+    // Active Nav Highlight on Scroll
+    // -------------------------------------------------------------
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.pageYOffset;
+
+      sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 120;
+        const sectionId = current.getAttribute('id');
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
