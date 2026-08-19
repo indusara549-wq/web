@@ -1,95 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Official Rank Store for RGS Networks. Upgrade your Minecraft gameplay with Elite, Legend, and Custom ranks. Instant in-game delivery, secure payments, and exclusive perks.">
-  <meta name="keywords" content="RGS Networks, Minecraft Store, Gaming Server Ranks, Minecraft Ranks, Buy Ranks, Elite Rank, Legend Rank, Custom Rank, rgs.mcc.lk">
-  <meta name="author" content="RGS Networks">
-  <title>RGS NETWORKS | Official Server Rank Store</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f0ff'><path d='M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z'/></svg>">
-
-  <!-- Google Fonts: Outfit, Plus Jakarta Sans, Rajdhani -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DARK SNIPER LK | Ultimate Gaming & Download Hub 2026</title>
+  <meta name="description" content="Elite gaming downloads, optimized game configs, FPS boosters, crosshair overlays, and low-latency mod tools for competitive gamers." />
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Canvas Confetti for celebratory purchase flow -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       DESIGN TOKENS & CSS VARIABLES
+       1. ROOT VARIABLES & THEME SETUP
        ========================================================================== */
     :root {
-      --bg-darkest: #050811;
-      --bg-base: #090d1a;
-      --bg-surface: #0f1527;
-      --bg-surface-elevated: #151d36;
-      --bg-card: rgba(15, 21, 39, 0.72);
-      --bg-card-hover: rgba(21, 29, 54, 0.88);
-      --bg-glass: rgba(15, 21, 39, 0.6);
+      --bg-main: #07090e;
+      --bg-card: rgba(14, 18, 28, 0.75);
+      --bg-card-hover: rgba(22, 28, 44, 0.9);
+      --bg-panel: #0d111a;
+      --bg-modal: rgba(10, 13, 20, 0.95);
       
-      --cyan-300: #67e8f9;
-      --cyan-400: #00f0ff;
-      --cyan-500: #00c8ff;
-      --cyan-glow: rgba(0, 240, 255, 0.35);
+      --neon-red: #ff0055;
+      --neon-red-glow: rgba(255, 0, 85, 0.4);
+      --neon-cyan: #00f0ff;
+      --neon-cyan-glow: rgba(0, 240, 255, 0.35);
+      --neon-emerald: #00ff88;
+      --neon-amber: #ffaa00;
       
-      --purple-300: #d8b4fe;
-      --purple-400: #b05cff;
-      --purple-500: #9333ea;
-      --purple-glow: rgba(168, 85, 247, 0.35);
-
-      --gold-300: #fde047;
-      --gold-400: #fbbf24;
-      --gold-500: #f59e0b;
-      --gold-glow: rgba(245, 158, 11, 0.35);
-
-      --discord-color: #5865F2;
-      --discord-hover: #4752c4;
-
-      --gradient-accent: linear-gradient(135deg, #00f0ff 0%, #a855f7 100%);
-      --gradient-accent-reverse: linear-gradient(135deg, #a855f7 0%, #00f0ff 100%);
-      --gradient-elite: linear-gradient(135deg, #00f0ff 0%, #3b82f6 100%);
-      --gradient-legend: linear-gradient(135deg, #00f0ff 0%, #a855f7 50%, #ec4899 100%);
-      --gradient-custom: linear-gradient(135deg, #fbbf24 0%, #f43f5e 50%, #8b5cf6 100%);
+      --text-main: #f0f4fc;
+      --text-muted: #8e9bb0;
+      --text-dim: #5a667a;
       
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
+      --border-color: rgba(0, 240, 255, 0.15);
+      --border-red: rgba(255, 0, 85, 0.3);
+      --border-active: rgba(0, 240, 255, 0.6);
       
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-glow-cyan: rgba(0, 240, 255, 0.4);
-      --border-glow-purple: rgba(168, 85, 247, 0.4);
-      --border-glow-gold: rgba(251, 191, 36, 0.4);
-
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-xl: 26px;
-      --radius-full: 9999px;
-
-      --shadow-card: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
-      --shadow-neon-cyan: 0 0 30px rgba(0, 240, 255, 0.25);
-      --shadow-neon-purple: 0 0 30px rgba(168, 85, 247, 0.25);
-      --shadow-neon-gold: 0 0 30px rgba(251, 191, 36, 0.25);
+      --font-heading: 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-tactical: 'Rajdhani', sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       
-      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-tech: 'Rajdhani', sans-serif;
-      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
       
       --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-smooth: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* ==========================================================================
-       RESET & BASE STYLES
+       2. RESET & BASE STYLES
        ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -99,190 +60,131 @@
 
     html {
       scroll-behavior: smooth;
-      font-size: 16px;
       color-scheme: dark;
     }
 
     body {
-      background-color: var(--bg-darkest);
+      background-color: var(--bg-main);
       color: var(--text-main);
       font-family: var(--font-body);
+      font-size: 16px;
       line-height: 1.6;
       overflow-x: hidden;
       min-height: 100vh;
       position: relative;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
-    ::selection {
-      background: rgba(0, 240, 255, 0.3);
-      color: #ffffff;
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg-darkest);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 5px;
-      border: 2px solid var(--bg-darkest);
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #334155;
-    }
-
-    /* ==========================================================================
-       BACKGROUND AMBIENT ATMOSPHERE
-       ========================================================================== */
-    .ambient-glow {
+    /* Tactical Background Grid & Vignette */
+    body::before {
+      content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .glow-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(130px);
-      opacity: 0.16;
-      animation: floatOrb 22s infinite ease-in-out alternate;
-    }
-
-    .glow-orb-1 {
-      width: 550px;
-      height: 550px;
-      background: #00f0ff;
-      top: -120px;
-      left: 10%;
-    }
-
-    .glow-orb-2 {
-      width: 650px;
-      height: 650px;
-      background: #9333ea;
-      top: 35%;
-      right: 5%;
-      animation-delay: -6s;
-    }
-
-    .glow-orb-3 {
-      width: 480px;
-      height: 480px;
-      background: #0284c7;
-      bottom: -100px;
-      left: 25%;
-      animation-delay: -12s;
-    }
-
-    @keyframes floatOrb {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(70px, 50px) scale(1.12); }
-      100% { transform: translate(-50px, 90px) scale(0.92); }
-    }
-
-    .bg-grid {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
-      -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+        linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
       pointer-events: none;
       z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 10%, rgba(255, 0, 85, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 85% 80%, rgba(0, 240, 255, 0.06) 0%, transparent 50%),
+                  radial-gradient(circle at 10% 90%, rgba(0, 255, 136, 0.04) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+      color: inherit;
+      outline: none;
+      border: none;
+    }
+
+    button {
+      cursor: pointer;
     }
 
     .container {
       width: 100%;
-      max-width: 1240px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 1.5rem;
       position: relative;
       z-index: 1;
     }
 
-    /* ==========================================================================
-       TOP BANNER (LIVE STATUS)
-       ========================================================================== */
-    .top-banner {
-      background: linear-gradient(90deg, rgba(0, 240, 255, 0.12), rgba(168, 85, 247, 0.12));
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 8px 0;
-      font-size: 0.84rem;
-      text-align: center;
-      position: relative;
-      z-index: 50;
+    /* Cyber Glitch & Glow Utility */
+    .glow-cyan {
+      text-shadow: 0 0 12px var(--neon-cyan-glow);
+    }
+    .glow-red {
+      text-shadow: 0 0 12px var(--neon-red-glow);
     }
 
-    .top-banner-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .status-badge {
+    .tactical-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(34, 197, 94, 0.15);
-      border: 1px solid rgba(34, 197, 94, 0.35);
-      color: #4ade80;
-      padding: 2px 10px;
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
+      padding: 4px 10px;
+      font-family: var(--font-tactical);
       font-weight: 700;
-      letter-spacing: 0.5px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: var(--radius-sm);
+      border: 1px solid;
     }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
-      animation: pulseDot 2s infinite;
+    .badge-cyan {
+      background: rgba(0, 240, 255, 0.1);
+      border-color: rgba(0, 240, 255, 0.4);
+      color: var(--neon-cyan);
     }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
+    .badge-red {
+      background: rgba(255, 0, 85, 0.1);
+      border-color: rgba(255, 0, 85, 0.4);
+      color: var(--neon-red);
+    }
+    .badge-green {
+      background: rgba(0, 255, 136, 0.1);
+      border-color: rgba(0, 255, 136, 0.4);
+      color: var(--neon-emerald);
+    }
+    .badge-amber {
+      background: rgba(255, 170, 0, 0.1);
+      border-color: rgba(255, 170, 0, 0.4);
+      color: var(--neon-amber);
     }
 
     /* ==========================================================================
-       NAVIGATION BAR
+       3. NAVIGATION BAR
        ========================================================================== */
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 40;
-      background: rgba(9, 13, 26, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-subtle);
-      transition: var(--transition-normal);
+      z-index: 100;
+      background: rgba(7, 9, 14, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      transition: all var(--transition-smooth);
     }
 
-    .nav-container {
+    .navbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 80px;
+      height: 76px;
     }
 
     /* Brand Logo */
@@ -290,84 +192,83 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      text-decoration: none;
-      color: var(--text-main);
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.35rem;
+      letter-spacing: 1.5px;
+      color: #fff;
+    }
+    .brand-logo span.highlight {
+      color: var(--neon-red);
+      position: relative;
+    }
+    .brand-logo span.lk {
+      color: var(--neon-cyan);
+      font-size: 1rem;
+      padding: 2px 6px;
+      border: 1px solid var(--neon-cyan);
+      border-radius: 4px;
+      margin-left: 4px;
+      background: rgba(0, 240, 255, 0.08);
     }
 
-    .logo-badge {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, #00f0ff 0%, #9333ea 100%);
-      border-radius: 12px;
+    .reticle-icon {
+      width: 32px;
+      height: 32px;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #060810;
-      font-size: 1.35rem;
-      font-weight: 900;
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
-      transition: var(--transition-smooth);
+    }
+    .reticle-circle {
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--neon-red);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--neon-red-glow);
+      animation: reticle-pulse 3s infinite alternate ease-in-out;
+    }
+    .reticle-cross {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: var(--neon-cyan);
+    }
+    .reticle-cross.vertical {
+      transform: rotate(90deg);
+    }
+    .reticle-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--neon-red);
+      border-radius: 50%;
+      z-index: 2;
+      box-shadow: 0 0 8px #ff0055;
     }
 
-    .brand-logo:hover .logo-badge {
-      transform: rotate(6deg) scale(1.06);
-      box-shadow: 0 0 28px rgba(168, 85, 247, 0.6);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-title {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: #ffffff;
-      line-height: 1.1;
-    }
-
-    .brand-title span {
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .brand-sub {
-      font-size: 0.68rem;
-      color: var(--cyan-400);
-      font-family: var(--font-tech);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 700;
+    @keyframes reticle-pulse {
+      0% { transform: scale(0.92); opacity: 0.8; }
+      100% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 8px var(--neon-red)); }
     }
 
     /* Nav Links */
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-link {
-      text-decoration: none;
+      font-family: var(--font-tactical);
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: var(--transition-fast);
       position: relative;
-      padding: 6px 0;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      padding: 8px 4px;
     }
-
-    .nav-link:hover, .nav-link.active {
-      color: #ffffff;
-    }
-
     .nav-link::after {
       content: '';
       position: absolute;
@@ -375,11 +276,13 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--gradient-accent);
-      transition: width var(--transition-normal);
-      border-radius: 2px;
+      background: var(--neon-cyan);
+      box-shadow: 0 0 8px var(--neon-cyan);
+      transition: width var(--transition-fast);
     }
-
+    .nav-link:hover, .nav-link.active {
+      color: #fff;
+    }
     .nav-link:hover::after, .nav-link.active::after {
       width: 100%;
     }
@@ -388,1158 +291,839 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 1rem;
     }
 
-    .nav-discord-btn {
-      display: inline-flex;
+    /* Tactical Audio Button */
+    .sound-toggle-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      display: flex;
       align-items: center;
-      gap: 8px;
-      background: var(--discord-color);
-      color: #ffffff;
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: var(--radius-md);
-      font-size: 0.88rem;
-      font-weight: 700;
-      transition: var(--transition-normal);
-      box-shadow: 0 4px 15px rgba(88, 101, 242, 0.35);
+      justify-content: center;
+      color: var(--neon-cyan);
+      transition: all var(--transition-fast);
+    }
+    .sound-toggle-btn:hover {
+      background: rgba(0, 240, 255, 0.15);
+      border-color: var(--neon-cyan);
     }
 
-    .nav-discord-btn:hover {
-      background: var(--discord-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
-    }
-
-    .mobile-toggle {
-      display: none;
-      background: transparent;
-      border: none;
-      color: var(--text-main);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 8px;
-    }
-
-    /* ==========================================================================
-       BUTTON STYLES
-       ========================================================================== */
+    /* Button Styles */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 14px 28px;
-      font-family: var(--font-display);
-      font-size: 1rem;
+      gap: 8px;
+      padding: 10px 22px;
+      font-family: var(--font-tactical);
       font-weight: 700;
-      border-radius: var(--radius-md);
-      text-decoration: none;
-      cursor: pointer;
-      transition: var(--transition-normal);
-      border: 1px solid transparent;
-      outline: none;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
     }
 
     .btn-primary {
-      background: var(--gradient-accent);
-      color: #060810;
-      box-shadow: 0 10px 25px -5px rgba(0, 240, 255, 0.4);
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(135deg, #ff0055 0%, #b8003d 100%);
+      color: #fff;
+      box-shadow: 0 0 18px rgba(255, 0, 85, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.6s ease;
-    }
-
-    .btn-primary:hover::before {
-      left: 100%;
-    }
-
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px -5px rgba(168, 85, 247, 0.55);
+      box-shadow: 0 0 28px rgba(255, 0, 85, 0.6);
+      background: linear-gradient(135deg, #ff1a6b 0%, #d40046 100%);
     }
 
-    .btn-secondary {
-      background: rgba(15, 21, 39, 0.85);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-main);
-      backdrop-filter: blur(10px);
+    .btn-cyan {
+      background: linear-gradient(135deg, #00f0ff 0%, #0099b8 100%);
+      color: #07090e;
+      font-weight: 800;
+      box-shadow: 0 0 18px rgba(0, 240, 255, 0.35);
     }
-
-    .btn-secondary:hover {
-      background: rgba(25, 34, 60, 0.9);
-      border-color: rgba(0, 240, 255, 0.4);
-      color: var(--cyan-400);
+    .btn-cyan:hover {
       transform: translateY(-2px);
+      box-shadow: 0 0 28px rgba(0, 240, 255, 0.6);
+      background: linear-gradient(135deg, #33f3ff 0%, #00b3d6 100%);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.05);
+    }
+    .btn-outline:hover {
+      background: rgba(0, 240, 255, 0.12);
+      box-shadow: 0 0 18px rgba(0, 240, 255, 0.35), inset 0 0 14px rgba(0, 240, 255, 0.2);
+      color: #fff;
+    }
+
+    .btn-danger {
+      background: rgba(255, 0, 85, 0.15);
+      border: 1px solid var(--neon-red);
+      color: var(--neon-red);
+    }
+    .btn-danger:hover {
+      background: var(--neon-red);
+      color: #fff;
+      box-shadow: 0 0 12px var(--neon-red-glow);
+    }
+
+    /* Mobile Hamburger */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 6px;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--neon-cyan);
+      transition: var(--transition-fast);
     }
 
     /* ==========================================================================
-       HERO SECTION
+       4. HERO SECTION
        ========================================================================== */
-    .hero-section {
-      padding: 90px 0 75px;
+    .hero {
+      padding: 5rem 0 4rem;
       position: relative;
-      text-align: center;
     }
 
-    .hero-pill-badge {
-      display: inline-flex;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
       align-items: center;
-      gap: 10px;
-      background: rgba(168, 85, 247, 0.1);
-      border: 1px solid rgba(168, 85, 247, 0.35);
-      padding: 6px 18px;
-      border-radius: var(--radius-full);
-      color: #e9d5ff;
-      font-size: 0.85rem;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-      margin-bottom: 24px;
     }
 
-    .hero-pill-badge i {
-      color: var(--cyan-400);
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+    .hero-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
       font-weight: 900;
-      line-height: 1.12;
-      letter-spacing: -0.5px;
-      max-width: 950px;
-      margin: 0 auto 22px;
-      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
-
-    .hero-title .gradient-text {
-      background: linear-gradient(135deg, #00f0ff 15%, #a855f7 65%, #ec4899 100%);
+    .hero-headline .text-gradient {
+      background: linear-gradient(135deg, #ffffff 20%, var(--neon-cyan) 65%, var(--neon-red) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      display: inline-block;
+      display: block;
     }
 
-    .hero-subtitle {
-      font-size: clamp(1rem, 2vw, 1.25rem);
+    .hero-description {
+      font-size: 1.12rem;
       color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto 36px;
-      font-weight: 400;
-      line-height: 1.7;
-    }
-
-    /* Prominent Server IP Badge Widget */
-    .server-ip-widget {
-      max-width: 520px;
-      margin: 0 auto 40px;
-      background: rgba(15, 21, 39, 0.75);
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      border-radius: var(--radius-xl);
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 240, 255, 0.15);
-      backdrop-filter: blur(15px);
-      transition: var(--transition-normal);
-    }
-
-    .server-ip-widget:hover {
-      border-color: var(--cyan-400);
-      box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.3);
-      transform: translateY(-2px);
-    }
-
-    .ip-info-group {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-align: left;
-    }
-
-    .ip-icon-box {
-      width: 44px;
-      height: 44px;
-      background: rgba(0, 240, 255, 0.12);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--cyan-400);
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-
-    .ip-details-text .ip-heading {
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-family: var(--font-tech);
-    }
-
-    .ip-details-text .ip-address {
-      font-family: var(--font-tech);
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: 0.5px;
-    }
-
-    .ip-details-text .ip-status-note {
-      font-size: 0.74rem;
-      color: #4ade80;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .btn-copy-main {
-      background: var(--gradient-accent);
-      color: #060810;
-      border: none;
-      padding: 10px 20px;
-      border-radius: var(--radius-md);
-      font-family: var(--font-display);
-      font-size: 0.92rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: var(--transition-fast);
-      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
-    }
-
-    .btn-copy-main:hover {
-      transform: scale(1.04);
-      box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+      max-width: 580px;
     }
 
     .hero-cta-group {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 54px;
+      gap: 1.25rem;
+      margin-top: 0.5rem;
     }
 
-    /* Trust Highlights */
-    .hero-features {
+    /* Live Telemetry Bar */
+    .telemetry-bar {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      max-width: 1060px;
-      margin: 0 auto;
-    }
-
-    .feature-item {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding: 1.25rem;
+      margin-top: 2rem;
       background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
-      padding: 18px 22px;
+      backdrop-filter: blur(12px);
+    }
+
+    .telemetry-item {
       display: flex;
+      flex-direction: column;
+      border-left: 2px solid var(--neon-cyan);
+      padding-left: 0.85rem;
+    }
+    .telemetry-item:first-child {
+      border-left-color: var(--neon-red);
+    }
+    .telemetry-item:nth-child(3) {
+      border-left-color: var(--neon-emerald);
+    }
+    .telemetry-item:nth-child(4) {
+      border-left-color: var(--neon-amber);
+    }
+
+    .telemetry-value {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .telemetry-label {
+      font-family: var(--font-tactical);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* Hero Tactical HUD Visual */
+    .tactical-hud-card {
+      background: linear-gradient(145deg, rgba(14, 20, 32, 0.9) 0%, rgba(8, 10, 16, 0.95) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 240, 255, 0.08);
+    }
+
+    /* HUD Corner Marks */
+    .hud-corner {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-color: var(--neon-cyan);
+    }
+    .hud-corner.top-left { top: 8px; left: 8px; border-top: 2px solid; border-left: 2px solid; }
+    .hud-corner.top-right { top: 8px; right: 8px; border-top: 2px solid; border-right: 2px solid; }
+    .hud-corner.bottom-left { bottom: 8px; left: 8px; border-bottom: 2px solid; border-left: 2px solid; }
+    .hud-corner.bottom-right { bottom: 8px; right: 8px; border-bottom: 2px solid; border-right: 2px solid; }
+
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      text-align: left;
-      backdrop-filter: blur(10px);
-      transition: var(--transition-normal);
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.75rem;
+    }
+    .hud-status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--neon-emerald);
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+      box-shadow: 0 0 8px var(--neon-emerald);
+      animation: pulse-dot 1.8s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
-    .feature-item:hover {
-      border-color: rgba(0, 240, 255, 0.3);
-      background: var(--bg-card-hover);
-      transform: translateY(-3px);
-    }
-
-    .feature-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(0, 240, 255, 0.1);
+    /* Tactical Radar Display */
+    .radar-container {
+      width: 100%;
+      height: 220px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      border-radius: var(--radius-md);
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--cyan-400);
-      font-size: 1.25rem;
-      flex-shrink: 0;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
     }
 
-    .feature-icon.purple {
-      background: rgba(168, 85, 247, 0.1);
-      color: var(--purple-400);
+    .radar-circle {
+      position: absolute;
+      border: 1px dashed rgba(0, 240, 255, 0.25);
+      border-radius: 50%;
+    }
+    .radar-circle:nth-child(1) { width: 60px; height: 60px; }
+    .radar-circle:nth-child(2) { width: 120px; height: 120px; }
+    .radar-circle:nth-child(3) { width: 180px; height: 180px; }
+
+    .radar-sweep {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, rgba(0, 240, 255, 0.4) 0deg, transparent 60deg, transparent 360deg);
+      animation: sweep 4s linear infinite;
+    }
+    @keyframes sweep {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
-    .feature-icon.gold {
-      background: rgba(245, 158, 11, 0.1);
-      color: var(--gold-400);
+    .radar-target {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: var(--neon-red);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--neon-red);
+      animation: target-blip 2s infinite ease-out;
+    }
+    .radar-target.t1 { top: 38%; left: 62%; animation-delay: 0.6s; }
+    .radar-target.t2 { top: 68%; left: 34%; animation-delay: 1.4s; }
+
+    @keyframes target-blip {
+      0% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.3); }
+      100% { opacity: 0.2; transform: scale(0.8); }
     }
 
-    .feature-text h4 {
-      font-size: 0.96rem;
+    .hud-metrics-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-tactical);
+      font-size: 0.95rem;
+    }
+    .hud-metric-val {
+      color: var(--neon-cyan);
       font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 2px;
-    }
-
-    .feature-text p {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.4;
     }
 
     /* ==========================================================================
-       SECTION HEADER
+       5. DOWNLOAD CENTER SECTION
        ========================================================================== */
-    .section-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 55px;
+    .downloads-section {
+      padding: 5rem 0;
+      position: relative;
     }
 
-    .section-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-tech);
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--cyan-400);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
     }
 
     .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 2.9rem);
-      font-weight: 900;
-      color: #ffffff;
-      line-height: 1.2;
-      margin-bottom: 14px;
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    /* ==========================================================================
-       RANK TIERS SECTION
-       ========================================================================== */
-    .ranks-section {
-      padding: 60px 0 100px;
-      position: relative;
-    }
-
-    .ranks-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    /* Rank Card Base */
-    .rank-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-xl);
-      padding: 36px 30px 32px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      backdrop-filter: blur(16px);
-      transition: all var(--transition-smooth);
-      box-shadow: var(--shadow-card);
-    }
-
-    .rank-card:hover {
-      transform: translateY(-8px);
-      background: var(--bg-card-hover);
-    }
-
-    /* Card Tier Badges */
-    .card-badge {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 5px 16px;
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       text-transform: uppercase;
-      white-space: nowrap;
-      z-index: 2;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
     }
 
-    .badge-elite {
-      background: rgba(0, 240, 255, 0.15);
-      border: 1px solid var(--cyan-400);
-      color: var(--cyan-300);
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-    }
-
-    .badge-legend {
-      background: var(--gradient-accent);
-      color: #060810;
-      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
-    }
-
-    .badge-custom {
-      background: linear-gradient(135deg, #f59e0b, #ec4899);
-      color: #060810;
-      box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
-    }
-
-    /* Rank Header */
-    .rank-header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .rank-icon-wrap {
-      width: 72px;
-      height: 72px;
-      border-radius: 20px;
-      margin: 0 auto 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      transition: var(--transition-smooth);
-    }
-
-    .rank-card:hover .rank-icon-wrap {
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    .elite-icon {
-      background: rgba(0, 240, 255, 0.12);
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      color: var(--cyan-400);
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
-    }
-
-    .legend-icon {
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      color: var(--purple-400);
-      box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
-    }
-
-    .custom-icon {
-      background: rgba(245, 158, 11, 0.15);
-      border: 1px solid rgba(245, 158, 11, 0.4);
-      color: var(--gold-400);
-      box-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
-    }
-
-    .rank-name {
-      font-family: var(--font-display);
-      font-size: 1.7rem;
-      font-weight: 900;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-
-    .rank-tagline {
-      font-size: 0.85rem;
+    .section-subtitle {
       color: var(--text-muted);
-      min-height: 40px;
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    /* Price Box */
-    .rank-price-box {
-      padding: 16px 0;
-      margin-bottom: 24px;
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-      text-align: center;
-    }
-
-    .price-currency {
-      font-family: var(--font-tech);
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      font-weight: 700;
-      margin-right: 4px;
-    }
-
-    .price-amount {
-      font-family: var(--font-display);
-      font-size: 2.7rem;
-      font-weight: 900;
-      color: #ffffff;
-      line-height: 1;
-    }
-
-    .price-duration {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      margin-left: 6px;
-    }
-
-    /* Perks List */
-    .perks-list {
-      list-style: none;
-      margin-bottom: 32px;
-      flex-grow: 1;
+    /* Filters & Search Control Bar */
+    .controls-bar {
       display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .perk-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.92rem;
-      color: #cbd5e1;
-      line-height: 1.45;
-    }
-
-    .perk-icon {
-      margin-top: 3px;
-      font-size: 0.95rem;
-      flex-shrink: 0;
-    }
-
-    .card-elite .perk-icon { color: var(--cyan-400); }
-    .card-legend .perk-icon { color: var(--purple-400); }
-    .card-custom .perk-icon { color: var(--gold-400); }
-
-    .perk-highlight {
-      font-weight: 700;
-      color: #ffffff;
-    }
-
-    /* Purchase Buttons */
-    .btn-purchase {
-      width: 100%;
-      padding: 15px 20px;
-      font-size: 1.02rem;
-      font-weight: 800;
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      transition: var(--transition-normal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border: 1px solid transparent;
-      outline: none;
-    }
-
-    .btn-purchase-elite {
-      background: rgba(0, 240, 255, 0.12);
-      color: var(--cyan-400);
-      border-color: rgba(0, 240, 255, 0.4);
-    }
-    .btn-purchase-elite:hover {
-      background: var(--cyan-400);
-      color: #060810;
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
-    }
-
-    .btn-purchase-legend {
-      background: var(--gradient-accent);
-      color: #060810;
-      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.45);
-    }
-    .btn-purchase-legend:hover {
-      box-shadow: 0 12px 30px rgba(0, 240, 255, 0.6);
-      transform: translateY(-2px);
-    }
-
-    .btn-purchase-custom {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(236, 72, 153, 0.2));
-      color: #fde047;
-      border-color: rgba(245, 158, 11, 0.5);
-    }
-    .btn-purchase-custom:hover {
-      background: linear-gradient(135deg, #f59e0b, #ec4899);
-      color: #060810;
-      box-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
-    }
-
-    /* Card Specific Borders & Accents */
-    .card-elite {
-      border-color: rgba(0, 240, 255, 0.25);
-    }
-    .card-elite:hover {
-      border-color: var(--cyan-400);
-      box-shadow: var(--shadow-neon-cyan);
-    }
-
-    .card-legend {
-      border-color: rgba(168, 85, 247, 0.4);
-      background: linear-gradient(180deg, rgba(25, 20, 50, 0.75) 0%, rgba(15, 21, 39, 0.85) 100%);
-      transform: scale(1.03);
-    }
-    .card-legend:hover {
-      border-color: var(--purple-400);
-      box-shadow: var(--shadow-neon-purple);
-      transform: scale(1.03) translateY(-8px);
-    }
-
-    .card-custom {
-      border-color: rgba(245, 158, 11, 0.3);
-    }
-    .card-custom:hover {
-      border-color: var(--gold-400);
-      box-shadow: var(--shadow-neon-gold);
-    }
-
-    /* ==========================================================================
-       SUPPORT & FAQ SECTION
-       ========================================================================== */
-    .support-section {
-      padding: 90px 0;
-      border-top: 1px solid var(--border-subtle);
-      background: rgba(9, 13, 26, 0.5);
-    }
-
-    .support-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 48px;
-      align-items: start;
-    }
-
-    .faq-title {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 24px;
-      color: #ffffff;
-    }
-
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .faq-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transition: var(--transition-normal);
-    }
-
-    .faq-item:hover {
-      border-color: rgba(0, 240, 255, 0.3);
-    }
-
-    .faq-question {
-      padding: 18px 22px;
-      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
       align-items: center;
       justify-content: space-between;
-      cursor: pointer;
+      margin-bottom: 2.5rem;
+      padding: 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+    }
+
+    .category-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .cat-tab {
+      padding: 8px 16px;
+      font-family: var(--font-tactical);
       font-weight: 700;
-      font-size: 1rem;
-      color: #ffffff;
-      user-select: none;
-    }
-
-    .faq-question i {
-      color: var(--cyan-400);
-      transition: transform var(--transition-normal);
-    }
-
-    .faq-item.active .faq-question i {
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      padding: 0 22px 20px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: rgba(255, 255, 255, 0.04);
       color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.65;
-      display: none;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      transition: all var(--transition-fast);
+    }
+    .cat-tab:hover {
+      color: #fff;
+      background: rgba(0, 240, 255, 0.08);
+      border-color: rgba(0, 240, 255, 0.3);
+    }
+    .cat-tab.active {
+      color: #07090e;
+      background: var(--neon-cyan);
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 14px rgba(0, 240, 255, 0.4);
     }
 
-    .faq-item.active .faq-answer {
-      display: block;
-    }
-
-    /* Community Discord Card */
-    .community-box {
-      background: linear-gradient(135deg, rgba(25, 32, 65, 0.9), rgba(15, 21, 39, 0.95));
-      border: 1px solid rgba(168, 85, 247, 0.35);
-      border-radius: var(--radius-xl);
-      padding: 40px 36px;
+    .search-box {
       position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+      min-width: 280px;
+      flex-grow: 1;
+      max-width: 380px;
     }
-
-    .community-box::after {
-      content: '';
+    .search-input {
+      width: 100%;
+      padding: 10px 16px 10px 42px;
+      background: rgba(7, 9, 14, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      color: #fff;
+      transition: all var(--transition-fast);
+    }
+    .search-input:focus {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+    }
+    .search-icon {
       position: absolute;
-      top: -40%;
-      right: -40%;
-      width: 250px;
-      height: 250px;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.25), transparent 70%);
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
       pointer-events: none;
     }
 
-    .community-box h3 {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-      color: #ffffff;
+    /* Cards Grid */
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.75rem;
     }
 
-    .community-box p {
-      color: var(--text-muted);
-      margin-bottom: 26px;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .support-badges {
+    .download-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
       display: flex;
-      gap: 12px;
-      margin-top: 26px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all var(--transition-smooth);
+      backdrop-filter: blur(8px);
+      overflow: hidden;
     }
-
-    .support-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      color: #cbd5e1;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--border-subtle);
-    }
-
-    /* ==========================================================================
-       CHECKOUT MODAL
-       ========================================================================== */
-    .modal-overlay {
-      position: fixed;
+    .download-card::before {
+      content: '';
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(4, 7, 15, 0.85);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      z-index: 100;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+    .download-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-active);
+      background: var(--bg-card-hover);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 240, 255, 0.12);
+    }
+    .download-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #fff;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.55;
+      min-height: 48px;
+    }
+
+    .card-specs {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 1.25rem;
+      font-family: var(--font-tactical);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .spec-item strong {
+      color: #fff;
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .download-btn {
+      flex: 1;
+      padding: 10px 16px;
+    }
+
+    .delete-file-btn {
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 0, 85, 0.12);
+      border: 1px solid var(--neon-red);
+      color: var(--neon-red);
+      transition: all var(--transition-fast);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+    }
+    .delete-file-btn:hover {
+      background: var(--neon-red);
+      color: #fff;
+      box-shadow: 0 0 12px var(--neon-red-glow);
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--bg-card);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-md);
+    }
+    .empty-state-icon {
+      font-size: 3rem;
+      color: var(--neon-red);
+      margin-bottom: 1rem;
+    }
+
+    /* ==========================================================================
+       6. ADMIN DASHBOARD SECTION (AUTHENTICATED)
+       ========================================================================== */
+    .admin-section {
+      display: none;
+      padding: 4rem 0;
+      background: linear-gradient(180deg, rgba(255, 0, 85, 0.03) 0%, transparent 100%);
+      border-top: 1px solid var(--border-red);
+      border-bottom: 1px solid var(--border-red);
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    .admin-section.active {
+      display: block;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .admin-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      gap: 1rem;
+      background: rgba(255, 0, 85, 0.08);
+      border: 1px solid var(--border-red);
+      padding: 1.25rem 1.75rem;
+      border-radius: var(--radius-md);
+    }
+
+    .admin-title-area h2 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .admin-panel-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+    }
+
+    /* Admin Form Card */
+    .admin-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+    }
+    .admin-card.red-border {
+      border-color: var(--border-red);
+    }
+
+    .admin-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-family: var(--font-tactical);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      background: rgba(7, 9, 14, 0.9);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-size: 0.95rem;
+      transition: border-color var(--transition-fast);
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* Quick stats widget in Admin */
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .admin-stat-box {
+      background: rgba(7, 9, 14, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+    }
+    .admin-stat-num {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--neon-red);
+    }
+
+    /* ==========================================================================
+       7. FEATURES / SECURITY SECTION
+       ========================================================================== */
+    .features-section {
+      padding: 4rem 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      transition: all var(--transition-fast);
+      position: relative;
+    }
+    .feature-card:hover {
+      border-color: var(--neon-cyan);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid var(--neon-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--neon-cyan);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .feature-card:nth-child(2) .feature-icon {
+      background: rgba(255, 0, 85, 0.1);
+      border-color: var(--neon-red);
+      color: var(--neon-red);
+    }
+    .feature-card:nth-child(3) .feature-icon {
+      background: rgba(0, 255, 136, 0.1);
+      border-color: var(--neon-emerald);
+      color: var(--neon-emerald);
+    }
+
+    .feature-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-text {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* ==========================================================================
+       8. MODALS (ADMIN LOGIN & DOWNLOAD PROGRESS)
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 7, 12, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
       opacity: 0;
       visibility: hidden;
       transition: all var(--transition-smooth);
     }
-
     .modal-overlay.active {
       opacity: 1;
       visibility: visible;
     }
 
-    .modal-card {
-      background: var(--bg-surface);
-      border: 1px solid rgba(0, 240, 255, 0.35);
-      border-radius: var(--radius-xl);
+    .modal-box {
+      background: var(--bg-modal);
+      border: 1px solid var(--neon-cyan);
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.2), inset 0 0 20px rgba(0, 240, 255, 0.05);
+      border-radius: var(--radius-md);
       width: 100%;
-      max-width: 580px;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 240, 255, 0.2);
+      max-width: 440px;
+      padding: 2.25rem;
+      position: relative;
       transform: scale(0.92) translateY(20px);
       transition: all var(--transition-smooth);
-      position: relative;
     }
-
-    .modal-overlay.active .modal-card {
+    .modal-overlay.active .modal-box {
       transform: scale(1) translateY(0);
     }
 
-    .modal-header {
-      padding: 24px 28px;
-      border-bottom: 1px solid var(--border-subtle);
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: 1.1rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      background: var(--bg-surface);
-      z-index: 10;
+      justify-content: center;
+      transition: var(--transition-fast);
     }
-
-    .modal-header-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .modal-rank-badge {
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+    .modal-close:hover {
+      background: var(--neon-red);
+      color: #fff;
+      border-color: var(--neon-red);
     }
 
     .modal-title {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
       font-weight: 800;
-      color: #ffffff;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .btn-close-modal {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-subtle);
+    .modal-desc {
       color: var(--text-muted);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition-fast);
-    }
-
-    .btn-close-modal:hover {
-      background: rgba(239, 68, 68, 0.2);
-      color: #ef4444;
-      border-color: rgba(239, 68, 68, 0.4);
-    }
-
-    .modal-body {
-      padding: 28px;
-    }
-
-    /* Selected Item Summary in Modal */
-    .order-summary {
-      background: rgba(9, 13, 26, 0.75);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-    }
-
-    .summary-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .summary-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-    }
-
-    .summary-name {
-      font-weight: 800;
-      color: #ffffff;
-      font-size: 1.1rem;
-    }
-
-    .summary-server {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .summary-price {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--cyan-400);
-      text-align: right;
-    }
-
-    /* Form Elements */
-    .form-group {
-      margin-bottom: 22px;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #e2e8f0;
-      margin-bottom: 8px;
-    }
-
-    .form-label span {
-      color: var(--cyan-400);
-    }
-
-    /* Username Input with Live Minecraft Avatar */
-    .input-avatar-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .mc-avatar-preview {
-      position: absolute;
-      left: 12px;
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
-      background: #1e293b;
-      image-rendering: pixelated;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      object-fit: cover;
-    }
-
-    .form-input {
-      width: 100%;
-      background: rgba(9, 13, 26, 0.9);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 14px 16px 14px 54px;
-      color: #ffffff;
-      font-size: 0.95rem;
-      font-family: var(--font-body);
-      transition: var(--transition-fast);
-    }
-
-    .form-input:focus {
-      outline: none;
-      border-color: var(--cyan-400);
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
     }
 
     .input-hint {
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       color: var(--text-dim);
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
-    /* Payment Method Selector */
-    .payment-methods-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+    /* Modal Progress Countdown */
+    .download-progress-box {
+      text-align: center;
+      padding: 1.5rem 0;
     }
-
-    .payment-option {
-      cursor: pointer;
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 1.5rem 0 1rem;
       position: relative;
     }
-
-    .payment-option input {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    .payment-box {
-      background: rgba(9, 13, 26, 0.85);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 14px 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      text-align: center;
-      transition: var(--transition-fast);
-    }
-
-    .payment-box i {
-      font-size: 1.35rem;
-      color: var(--text-muted);
-      transition: var(--transition-fast);
-    }
-
-    .payment-box span {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--text-muted);
-    }
-
-    .payment-option input:checked + .payment-box {
-      border-color: var(--cyan-400);
-      background: rgba(0, 240, 255, 0.1);
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-    }
-
-    .payment-option input:checked + .payment-box i,
-    .payment-option input:checked + .payment-box span {
-      color: var(--cyan-400);
-    }
-
-    /* Dynamic Payment Panel */
-    .payment-details-panel {
-      background: rgba(9, 13, 26, 0.55);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      margin-top: 14px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .payment-details-panel .detail-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 6px;
-    }
-
-    .payment-details-panel .detail-row strong {
-      color: #ffffff;
-    }
-
-    .terms-label {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      margin-top: 16px;
-      user-select: none;
-    }
-
-    .terms-label input {
-      margin-top: 3px;
-      accent-color: var(--cyan-400);
-      cursor: pointer;
-    }
-
-    .btn-submit-order {
-      width: 100%;
-      margin-top: 24px;
-      padding: 16px;
-      font-size: 1.05rem;
-      font-weight: 800;
-      background: var(--gradient-accent);
-      color: #060810;
-      border: none;
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      transition: var(--transition-normal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 10px 25px rgba(0, 240, 255, 0.35);
-    }
-
-    .btn-submit-order:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(168, 85, 247, 0.5);
-    }
-
-    .btn-submit-order:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      filter: grayscale(0.5);
-    }
-
-    /* Success View inside Modal */
-    .checkout-success-view {
-      display: none;
-      text-align: center;
-      padding: 30px 20px 20px;
-    }
-
-    .success-icon-wrap {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: rgba(34, 197, 94, 0.15);
-      border: 2px solid #22c55e;
-      color: #22c55e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      margin: 0 auto 20px;
-      animation: scalePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    @keyframes scalePop {
-      0% { transform: scale(0); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .success-title {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .success-text {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      max-width: 420px;
-      margin: 0 auto 24px;
-    }
-
-    .receipt-box {
-      background: rgba(9, 13, 26, 0.85);
-      border: 1px dashed rgba(34, 197, 94, 0.4);
-      border-radius: var(--radius-md);
-      padding: 18px;
-      text-align: left;
-      margin-bottom: 24px;
-      font-size: 0.86rem;
-    }
-
-    .receipt-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      color: var(--text-muted);
-    }
-
-    .receipt-row strong {
-      color: #ffffff;
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-emerald));
+      box-shadow: 0 0 12px var(--neon-cyan);
+      transition: width 0.1s linear;
     }
 
     /* ==========================================================================
-       TOAST NOTIFICATION
+       9. TOAST NOTIFICATIONS
        ========================================================================== */
     .toast-container {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 200;
+      bottom: 24px;
+      right: 24px;
+      z-index: 2000;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -1547,1249 +1131,1311 @@
     }
 
     .toast {
-      background: rgba(15, 21, 39, 0.96);
-      border: 1px solid var(--cyan-400);
-      color: #ffffff;
-      padding: 14px 20px;
-      border-radius: var(--radius-md);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 240, 255, 0.3);
+      background: rgba(14, 18, 28, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--neon-cyan);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px var(--neon-cyan-glow);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-tactical);
+      font-weight: 600;
+      font-size: 1rem;
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transform: translateX(120%);
-      transition: transform var(--transition-smooth);
       pointer-events: auto;
+      animation: toastIn 0.3s ease-out forwards;
+      max-width: 360px;
+    }
+    .toast.error {
+      border-color: var(--neon-red);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px var(--neon-red-glow);
+    }
+    .toast.success {
+      border-color: var(--neon-emerald);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px rgba(0, 255, 136, 0.4);
     }
 
-    .toast.active {
-      transform: translateX(0);
+    @keyframes toastIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes toastOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .toast i {
-      color: var(--cyan-400);
-      font-size: 1.1rem;
+    /* Error Shake */
+    .shake {
+      animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+    @keyframes shake {
+      10%, 90% { transform: translate3d(-2px, 0, 0); }
+      20%, 80% { transform: translate3d(4px, 0, 0); }
+      30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+      40%, 60% { transform: translate3d(6px, 0, 0); }
     }
 
     /* ==========================================================================
-       FOOTER
+       10. FOOTER
        ========================================================================== */
     .site-footer {
-      background: #03050a;
-      border-top: 1px solid var(--border-subtle);
-      padding: 65px 0 32px;
+      background: #04060a;
+      border-top: 1px solid var(--border-color);
+      padding: 4rem 0 2rem;
+      margin-top: 4rem;
       position: relative;
-      z-index: 1;
     }
 
-    .footer-top {
+    .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 48px;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
     }
 
     .footer-brand p {
       color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-top: 14px;
-      max-width: 320px;
-      line-height: 1.6;
+      font-size: 0.92rem;
+      margin: 1rem 0 1.5rem;
+      max-width: 400px;
     }
 
-    .footer-col h4 {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 18px;
-      letter-spacing: 0.5px;
+    .footer-links-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      color: #fff;
     }
 
-    .footer-links {
+    .footer-links-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-    }
-
-    .footer-links a {
+      gap: 0.75rem;
+      font-family: var(--font-tactical);
+      font-size: 1rem;
       color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.88rem;
-      transition: var(--transition-fast);
     }
-
-    .footer-links a:hover {
-      color: var(--cyan-400);
-      transform: translateX(3px);
-      display: inline-block;
+    .footer-links-list a:hover {
+      color: var(--neon-cyan);
+      padding-left: 4px;
     }
 
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding-top: 28px;
+      padding-top: 2rem;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 16px;
-      font-size: 0.84rem;
-      color: var(--text-dim);
-    }
-
-    .footer-disclaimer {
-      max-width: 600px;
-      line-height: 1.4;
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 12px;
-    }
-
-    .social-link {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-      display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: var(--transition-fast);
-    }
-
-    .social-link:hover {
-      background: var(--cyan-400);
-      color: #060810;
-      border-color: var(--cyan-400);
-      transform: translateY(-2px);
-    }
-
-    .social-link.discord-link:hover {
-      background: var(--discord-color);
-      color: #ffffff;
-      border-color: var(--discord-color);
+      gap: 1rem;
+      color: var(--text-dim);
+      font-size: 0.88rem;
     }
 
     /* ==========================================================================
-       RESPONSIVE BREAKPOINTS
+       11. RESPONSIVE BREAKPOINTS
        ========================================================================== */
-    @media (max-width: 1024px) {
-      .ranks-grid {
-        grid-template-columns: 1fr;
-        max-width: 520px;
-        margin: 0 auto;
-      }
-      .card-legend {
-        transform: scale(1);
-      }
-      .card-legend:hover {
-        transform: translateY(-8px);
-      }
-      .support-grid {
+    @media (max-width: 992px) {
+      .hero-grid {
         grid-template-columns: 1fr;
       }
-      .footer-top {
+      .admin-panel-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
         grid-template-columns: 1fr 1fr;
+      }
+      .telemetry-bar {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 768px) {
-      .mobile-toggle {
-        display: block;
+      .mobile-menu-btn {
+        display: flex;
       }
       .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 76px;
         left: 0;
-        width: 100%;
-        background: rgba(9, 13, 26, 0.98);
+        right: 0;
+        background: rgba(7, 9, 14, 0.98);
         backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-color);
         flex-direction: column;
-        align-items: flex-start;
-        padding: 24px;
-        gap: 20px;
-        border-bottom: 1px solid var(--border-subtle);
+        padding: 2rem;
+        gap: 1.5rem;
         transform: translateY(-150%);
         transition: transform var(--transition-smooth);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+        z-index: 99;
       }
-      .nav-menu.active {
+      .nav-menu.open {
         transform: translateY(0);
       }
-      .hero-section {
-        padding: 60px 0 50px;
-      }
-      .server-ip-widget {
-        flex-direction: column;
-        gap: 14px;
-        text-align: center;
-      }
-      .ip-info-group {
-        flex-direction: column;
-        text-align: center;
-      }
-      .btn-copy-main {
-        width: 100%;
-        justify-content: center;
-      }
-      .modal-card {
-        padding: 0;
-      }
-      .modal-header, .modal-body {
-        padding: 20px;
-      }
-      .payment-methods-grid {
+      .footer-grid {
         grid-template-columns: 1fr;
       }
-      .footer-top {
+      .download-grid {
         grid-template-columns: 1fr;
       }
-      .footer-bottom {
+      .controls-bar {
         flex-direction: column;
-        text-align: center;
+        align-items: stretch;
+      }
+      .search-box {
+        max-width: 100%;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Ambient Glowing Background Atmosphere -->
-  <div class="ambient-glow" aria-hidden="true">
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
-    <div class="glow-orb glow-orb-3"></div>
-  </div>
-  <div class="bg-grid" aria-hidden="true"></div>
-
-  <!-- Top Status Announcement Bar -->
-  <div class="top-banner">
-    <div class="container top-banner-content">
-      <div class="status-badge">
-        <span class="status-dot"></span>
-        <span>SERVER ONLINE</span>
-      </div>
-      <span>⚡ <strong>INSTANT ACTIVATION:</strong> In-game rank delivery in under 60 seconds across all realms!</span>
-    </div>
-  </div>
-
-  <!-- Navigation Bar -->
+  <!-- ==========================================================================
+       1. NAVIGATION BAR
+       ========================================================================== -->
   <header class="navbar" id="navbar">
-    <div class="container nav-container">
-      
-      <!-- Brand Logo -->
-      <a href="#home" class="brand-logo" id="brand-logo-link" aria-label="RGS Networks Home">
-        <div class="logo-badge">
-          <i class="fa-solid fa-gamepad"></i>
-        </div>
-        <div class="brand-text">
-          <span class="brand-title">RGS <span>NETWORKS</span></span>
-          <span class="brand-sub">Official Rank Store</span>
-        </div>
-      </a>
-
-      <!-- Navigation Links -->
-      <nav aria-label="Main Navigation">
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="#home" class="nav-link active" id="nav-home"><i class="fa-solid fa-house"></i> Home</a></li>
-          <li><a href="#ranks" class="nav-link" id="nav-ranks"><i class="fa-solid fa-crown"></i> Ranks</a></li>
-          <li><a href="#support" class="nav-link" id="nav-support"><i class="fa-solid fa-headset"></i> Support</a></li>
-        </ul>
-      </nav>
-
-      <!-- Discord CTA & Mobile Menu Toggle -->
-      <div class="nav-actions">
-        <a href="https://discord.gg/P2uw9eH66" target="_blank" rel="noopener noreferrer" class="nav-discord-btn" id="nav-btn-discord">
-          <i class="fa-brands fa-discord"></i>
-          <span>Discord</span>
+    <div class="container">
+      <div class="navbar-inner">
+        <!-- Logo -->
+        <a href="#home" class="brand-logo" id="logoLink">
+          <div class="reticle-icon">
+            <div class="reticle-circle"></div>
+            <div class="reticle-cross"></div>
+            <div class="reticle-cross vertical"></div>
+            <div class="reticle-dot"></div>
+          </div>
+          <div>DARK <span class="highlight">SNIPER</span><span class="lk">LK</span></div>
         </a>
-        <button class="mobile-toggle" id="btn-mobile-toggle" aria-label="Toggle navigation menu">
-          <i class="fa-solid fa-bars" id="menu-icon"></i>
-        </button>
-      </div>
 
+        <!-- Navigation Menu -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#downloads" class="nav-link">Downloads</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li id="adminNavTab" style="display: none;">
+            <a href="#admin-panel" class="nav-link" style="color: var(--neon-red);"><span class="glow-red">Admin Dashboard</span></a>
+          </li>
+        </ul>
+
+        <!-- Action Items -->
+        <div class="nav-actions">
+          <!-- Audio Feedback Toggle -->
+          <button class="sound-toggle-btn" id="soundToggleBtn" title="Toggle Tactical Audio Feedback" aria-label="Toggle Sound">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"/>
+            </svg>
+          </button>
+
+          <!-- Dynamic Auth Button -->
+          <button class="btn btn-primary" id="adminAuthBtn">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+            <span id="adminBtnText">Admin Login</span>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main>
-    <!-- HERO SECTION -->
-    <section class="hero-section" id="home">
-      <div class="container">
-        
-        <div class="hero-pill-badge">
-          <i class="fa-solid fa-bolt"></i>
-          <span>Official RGS Networks Store</span>
+  <!-- ==========================================================================
+       2. HERO SECTION
+       ========================================================================== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Hero Text -->
+        <div class="hero-content">
+          <div>
+            <span class="tactical-badge badge-red">
+              <span class="hud-status-dot"></span> Tactical Hub v2.6 Online
+            </span>
+          </div>
+
+          <h1 class="hero-headline">
+            Welcome to <span class="text-gradient">Dark Sniper LK</span> Gaming Hub
+          </h1>
+
+          <p class="hero-description">
+            The ultimate competitive gaming arsenal. Access verified game configs, low-latency crosshairs, custom FPS optimizers, and VIP gaming tools built for precision and performance.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#downloads" class="btn btn-cyan">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Explore Downloads
+            </a>
+            <a href="#features" class="btn btn-outline">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+              Security Guarantee
+            </a>
+          </div>
+
+          <!-- Telemetry Stats -->
+          <div class="telemetry-bar">
+            <div class="telemetry-item">
+              <div class="telemetry-value" id="statDownloads">48,920+</div>
+              <div class="telemetry-label">Total Downloads</div>
+            </div>
+            <div class="telemetry-item">
+              <div class="telemetry-value">99.8%</div>
+              <div class="telemetry-label">Anti-Cheat Safe</div>
+            </div>
+            <div class="telemetry-item">
+              <div class="telemetry-value">0.8ms</div>
+              <div class="telemetry-label">Input Latency</div>
+            </div>
+            <div class="telemetry-item">
+              <div class="telemetry-value">2026</div>
+              <div class="telemetry-label">Verified Edition</div>
+            </div>
+          </div>
         </div>
 
-        <h1 class="hero-title">
-          Elevate Your Gameplay on <span class="gradient-text">RGS Networks</span>
-        </h1>
+        <!-- Tactical HUD Display Card -->
+        <div class="tactical-hud-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
 
-        <p class="hero-subtitle">
-          Unlock exclusive chat prefixes, flight abilities, high-tier kits, and unlimited home sets. 
-          Stand out from the crowd and dominate the server with instant automated perk activation.
+          <div class="hud-header">
+            <div>
+              <span class="hud-status-dot"></span>
+              <strong style="font-family: var(--font-heading); font-size: 0.9rem; letter-spacing: 1px;">TARGETING SYSTEM</strong>
+            </div>
+            <span class="tactical-badge badge-cyan">LK-RADAR ACTIVE</span>
+          </div>
+
+          <!-- Radar Visual -->
+          <div class="radar-container">
+            <div class="radar-circle"></div>
+            <div class="radar-circle"></div>
+            <div class="radar-circle"></div>
+            <div class="radar-sweep"></div>
+            <div class="radar-target t1"></div>
+            <div class="radar-target t2"></div>
+            <div style="z-index: 5; font-family: var(--font-heading); font-size: 0.8rem; color: var(--neon-cyan); opacity: 0.8;">
+              LK OPTIC // LOCK 0.00
+            </div>
+          </div>
+
+          <div class="hud-metrics-row">
+            <div>SYSTEM: <span class="hud-metric-val">CALIBRATED</span></div>
+            <div>FPS BOOST: <span class="hud-metric-val">+35% AVG</span></div>
+            <div>PING: <span class="hud-metric-val" id="livePing">12ms</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. ADMIN DASHBOARD PANEL (AUTHENTICATED ONLY)
+       ========================================================================== -->
+  <section class="admin-section" id="admin-panel">
+    <div class="container">
+      <div class="admin-header">
+        <div class="admin-title-area">
+          <h2>
+            <svg width="24" height="24" fill="none" stroke="var(--neon-red)" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+            ADMIN COMMAND CENTER
+          </h2>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Authenticated as: <strong style="color: var(--neon-cyan);">dark</strong> (Full Privileges)</span>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <button class="btn btn-outline" id="resetCatalogBtn" title="Reset to default files if needed">Reset Catalog</button>
+          <button class="btn btn-danger" id="adminLogoutBtn">Logout Admin</button>
+        </div>
+      </div>
+
+      <div class="admin-panel-grid">
+        <!-- Add File Form -->
+        <div class="admin-card red-border">
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 1.25rem; color: #fff;">
+            + PUBLISH NEW DOWNLOAD FILE
+          </h3>
+
+          <form id="addFileForm" class="admin-form">
+            <div class="form-group">
+              <label class="form-label" for="fileTitle">File Title *</label>
+              <input type="text" id="fileTitle" class="form-input" placeholder="e.g. Minecraft Ultra Low Latency Pack v2.0" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="fileCategory">Category *</label>
+                <select id="fileCategory" class="form-select" required>
+                  <option value="Configs">Game Configs</option>
+                  <option value="Tools">Performance Tools</option>
+                  <option value="Boosters">FPS Boosters</option>
+                  <option value="Scripts">VIP Scripts & Mods</option>
+                  <option value="Overlays">Crosshair Overlays</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="fileSize">File Size *</label>
+                <input type="text" id="fileSize" class="form-input" placeholder="e.g. 14.8 MB or 1.2 GB" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="fileVersion">Version Tag</label>
+                <input type="text" id="fileVersion" class="form-input" placeholder="e.g. v2026.1" value="v2026.1" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="fileDownloadLink">Download URL / Direct Link *</label>
+                <input type="url" id="fileDownloadLink" class="form-input" placeholder="https://example.com/file.zip" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fileDescription">Description *</label>
+              <textarea id="fileDescription" class="form-textarea" placeholder="Detailed tactical file description, compatibility notes, and instructions..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+              Publish to Public Downloads
+            </button>
+          </form>
+        </div>
+
+        <!-- Admin Overview & Live Metrics -->
+        <div class="admin-card">
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 1.25rem; color: #fff;">
+            HUB STORAGE TELEMETRY
+          </h3>
+
+          <div class="admin-stats-grid">
+            <div class="admin-stat-box">
+              <div class="admin-stat-num" id="adminTotalFiles">0</div>
+              <div class="telemetry-label">Active Downloads</div>
+            </div>
+            <div class="admin-stat-box">
+              <div class="admin-stat-num" style="color: var(--neon-cyan);" id="adminTotalDownloads">0</div>
+              <div class="telemetry-label">Session Downloads</div>
+            </div>
+            <div class="admin-stat-box">
+              <div class="admin-stat-num" style="color: var(--neon-emerald);">ACTIVE</div>
+              <div class="telemetry-label">localStorage Sync</div>
+            </div>
+            <div class="admin-stat-box">
+              <div class="admin-stat-num" style="color: var(--neon-amber);">2026.8</div>
+              <div class="telemetry-label">Core Engine</div>
+            </div>
+          </div>
+
+          <div style="background: rgba(0, 240, 255, 0.05); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem; font-size: 0.88rem; color: var(--text-muted);">
+            <strong style="color: #fff; display: block; margin-bottom: 6px;">⚡ Instant Live Sync</strong>
+            Any file you publish or delete is immediately written to your browser's persistent <code style="color: var(--neon-cyan);">localStorage</code> and updated across the live download center without page reload.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. DOWNLOAD CENTER SECTION
+       ========================================================================== -->
+  <section class="downloads-section" id="downloads">
+    <div class="container">
+      <div class="section-header">
+        <span class="tactical-badge badge-cyan">Tactical Arsenal</span>
+        <h2 class="section-title" style="margin-top: 0.5rem;">DOWNLOAD CENTER</h2>
+        <p class="section-subtitle">
+          Verified gaming enhancements, engine unlocks, and competitive config files.
         </p>
-
-        <!-- Prominent Server IP Badge with Click-to-Copy -->
-        <div class="server-ip-widget" id="server-ip-box">
-          <div class="ip-info-group">
-            <div class="ip-icon-box">
-              <i class="fa-solid fa-server"></i>
-            </div>
-            <div class="ip-details-text">
-              <div class="ip-heading">Server IP Address</div>
-              <div class="ip-address" id="server-ip-text">rgs.mcc.lk</div>
-              <div class="ip-status-note">
-                <span class="status-dot"></span>
-                <span>🟢 148 Players Online • 1.16 - 1.21+</span>
-              </div>
-            </div>
-          </div>
-          <button class="btn-copy-main" id="btn-copy-hero-ip" title="Click to copy server IP address">
-            <i class="fa-regular fa-copy" id="hero-copy-icon"></i>
-            <span id="hero-copy-label">Copy IP</span>
-          </button>
-        </div>
-
-        <!-- Hero CTA Group -->
-        <div class="hero-cta-group">
-          <a href="#ranks" class="btn btn-primary" id="hero-cta-ranks">
-            <i class="fa-solid fa-gem"></i> View Server Ranks
-          </a>
-          <a href="#support" class="btn btn-secondary" id="hero-cta-support">
-            <i class="fa-solid fa-circle-question"></i> How It Works
-          </a>
-        </div>
-
-        <!-- Trust Highlights -->
-        <div class="hero-features">
-          <div class="feature-item">
-            <div class="feature-icon">
-              <i class="fa-solid fa-bolt-lightning"></i>
-            </div>
-            <div class="feature-text">
-              <h4>Instant Delivery</h4>
-              <p>Ranks activate in-game within 60 seconds automatically</p>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon purple">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <div class="feature-text">
-              <h4>Secure Payment</h4>
-              <p>Cards, Bank Transfer & Sri Lankan Mobile Reload</p>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon gold">
-              <i class="fa-solid fa-award"></i>
-            </div>
-            <div class="feature-text">
-              <h4>Permanent Perks</h4>
-              <p>One-time payment for lifetime rank status</p>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </section>
 
-    <!-- RANK TIERS SECTION -->
-    <section class="ranks-section" id="ranks">
-      <div class="container">
-        
-        <div class="section-header">
-          <span class="section-tag"><i class="fa-solid fa-gem"></i> Upgrade Your Experience</span>
-          <h2 class="section-title">Select Your Server Rank</h2>
-          <p class="section-desc">
-            Choose the tier that fits your playstyle. All ranks are permanent and synchronize automatically with your Minecraft account.
-          </p>
+      <!-- Controls & Filter Tabs -->
+      <div class="controls-bar">
+        <div class="category-tabs" id="categoryTabs">
+          <button class="cat-tab active" data-category="All">All Files</button>
+          <button class="cat-tab" data-category="Configs">Configs</button>
+          <button class="cat-tab" data-category="Tools">Tools</button>
+          <button class="cat-tab" data-category="Boosters">FPS Boosters</button>
+          <button class="cat-tab" data-category="Scripts">Scripts & Mods</button>
+          <button class="cat-tab" data-category="Overlays">Overlays</button>
         </div>
 
-        <div class="ranks-grid">
-          
-          <!-- 1. ELITE RANK (Rs. 500) -->
-          <article class="rank-card card-elite" id="card-elite">
-            <span class="card-badge badge-elite">Starter Tier</span>
-            
-            <div class="rank-header">
-              <div class="rank-icon-wrap elite-icon">
-                <i class="fa-solid fa-shield"></i>
-              </div>
-              <h3 class="rank-name">Elite Rank</h3>
-              <p class="rank-tagline">Essential perks for dedicated survivors & builders</p>
-            </div>
-
-            <div class="rank-price-box">
-              <span class="price-currency">Rs.</span>
-              <span class="price-amount">500</span>
-              <span class="price-duration">/ One-time</span>
-            </div>
-
-            <ul class="perks-list">
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span><strong class="perk-highlight">Custom Chat Prefix</strong> ([Elite] in Cyan)</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span><strong class="perk-highlight">Basic Kit</strong> (Iron & Diamond Gear + Tools)</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span><strong class="perk-highlight">1x Home Set</strong> (<code style="color:var(--cyan-400)">/sethome</code> teleport point)</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span>Priority Server Join Queue access</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span>Access to <strong>/feed</strong> command (15m cooldown)</span>
-              </li>
-            </ul>
-
-            <button class="btn btn-purchase btn-purchase-elite" 
-                    id="btn-buy-elite" 
-                    data-rank="Elite Rank" 
-                    data-price="500" 
-                    data-tier="Starter Tier"
-                    data-theme="elite">
-              <i class="fa-solid fa-cart-shopping"></i> Purchase Rank
-            </button>
-          </article>
-
-          <!-- 2. LEGEND RANK (Rs. 1000) -->
-          <article class="rank-card card-legend" id="card-legend">
-            <span class="card-badge badge-legend"><i class="fa-solid fa-fire"></i> Most Popular</span>
-            
-            <div class="rank-header">
-              <div class="rank-icon-wrap legend-icon">
-                <i class="fa-solid fa-crown"></i>
-              </div>
-              <h3 class="rank-name">Legend Rank</h3>
-              <p class="rank-tagline">The ultimate balance of flight, kits, and prestige</p>
-            </div>
-
-            <div class="rank-price-box">
-              <span class="price-currency">Rs.</span>
-              <span class="price-amount">1000</span>
-              <span class="price-duration">/ One-time</span>
-            </div>
-
-            <ul class="perks-list">
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span><strong class="perk-highlight">Fly in Lobby</strong> & Hub (<code style="color:var(--purple-400)">/fly</code> ability)</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span><strong class="perk-highlight">Extra Home Sets</strong> (Up to 5 total /sethomes)</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span><strong class="perk-highlight">Kit Legend Weekly</strong> (Enchanted Diamond Armor & Weapons)</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span>Radiant Purple Chat Prefix & Colored Name</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span>Access to <strong>/heal</strong> & <strong>/feed</strong> (5m cooldown)</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span>Keep XP on Death in Survival Gamemodes</span>
-              </li>
-            </ul>
-
-            <button class="btn btn-purchase btn-purchase-legend" 
-                    id="btn-buy-legend" 
-                    data-rank="Legend Rank" 
-                    data-price="1000" 
-                    data-tier="Most Popular"
-                    data-theme="legend">
-              <i class="fa-solid fa-bolt"></i> Purchase Rank
-            </button>
-          </article>
-
-          <!-- 3. CUSTOM RANK (Rs. 2500) -->
-          <article class="rank-card card-custom" id="card-custom">
-            <span class="card-badge badge-custom"><i class="fa-solid fa-star"></i> Ultimate VIP</span>
-            
-            <div class="rank-header">
-              <div class="rank-icon-wrap custom-icon">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-              </div>
-              <h3 class="rank-name">Custom Rank</h3>
-              <p class="rank-tagline">Bespoke rank tailored specifically to your identity</p>
-            </div>
-
-            <div class="rank-price-box">
-              <span class="price-currency">Rs.</span>
-              <span class="price-amount">2500</span>
-              <span class="price-duration">/ One-time</span>
-            </div>
-
-            <ul class="perks-list">
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span><strong class="perk-highlight">Fully Custom Prefix</strong> (Any Text & Hex Gradient)</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span><strong class="perk-highlight">Unlimited Homes</strong> (Unlimited /sethome points)</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span><strong class="perk-highlight">Priority Support</strong> via Dedicated Discord Ticket</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span>Full Flight Mode in Lobby, Hub & Sandbox</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span>Custom In-Game Join Announcement Message</span>
-              </li>
-              <li class="perk-item">
-                <i class="fa-solid fa-circle-check perk-icon"></i>
-                <span>Access to <strong>/workbench</strong>, <strong>/anvil</strong> & <strong>/hat</strong></span>
-              </li>
-            </ul>
-
-            <button class="btn btn-purchase btn-purchase-custom" 
-                    id="btn-buy-custom" 
-                    data-rank="Custom Rank" 
-                    data-price="2500" 
-                    data-tier="Ultimate VIP"
-                    data-theme="custom">
-              <i class="fa-solid fa-gem"></i> Purchase Rank
-            </button>
-          </article>
-
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search configs, tools, mods..." />
         </div>
       </div>
-    </section>
 
-    <!-- SUPPORT & FAQ SECTION -->
-    <section class="support-section" id="support">
-      <div class="container">
-        <div class="support-grid">
-          
-          <!-- FAQ Column -->
-          <div>
-            <h3 class="faq-title">Frequently Asked Questions</h3>
-            <div class="faq-list">
-              
-              <div class="faq-item active">
-                <div class="faq-question">
-                  <span>How long does rank activation take?</span>
-                  <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                  Rank delivery is completely automated! Once your payment is verified, your rank perks, chat prefix, and permissions will be applied to your account on <code>rgs.mcc.lk</code> in under 60 seconds.
-                </div>
-              </div>
+      <!-- Download Grid -->
+      <div class="download-grid" id="downloadGrid">
+        <!-- Dynamically rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
 
-              <div class="faq-item">
-                <div class="faq-question">
-                  <span>What payment methods are supported in Sri Lanka?</span>
-                  <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                  We proudly support all major Visa & Mastercard cards, Direct Bank Transfers (Commercial Bank, Sampath, HNB, BOC), and Mobile Reload (Dialog, Mobitel, EzCash, mCash).
-                </div>
-              </div>
+  <!-- ==========================================================================
+       5. FEATURES & GUARANTEE SECTION
+       ========================================================================== -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="tactical-badge badge-red">Security & Performance</span>
+        <h2 class="section-title" style="margin-top: 0.5rem;">WHY DARK SNIPER LK?</h2>
+        <p class="section-subtitle">Engineered for extreme performance, security compliance, and minimal footprint.</p>
+      </div>
 
-              <div class="faq-item">
-                <div class="faq-question">
-                  <span>Can I upgrade from Elite to Legend later?</span>
-                  <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                  Yes! You only pay the difference when upgrading between tiers. Open a support ticket on our Discord server and our staff will assist you with an upgrade discount.
-                </div>
-              </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3 class="feature-title">100% VirusTotal Clean</h3>
+          <p class="feature-text">Every single file, script, and config is scanned against 70+ antivirus engines prior to publication on our servers.</p>
+        </div>
 
-              <div class="faq-item">
-                <div class="faq-question">
-                  <span>How do I configure my Custom Rank prefix?</span>
-                  <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                  After purchasing the Custom Rank, our automated bot prompts you on Discord or our server administrators will help you set up your custom prefix text, gradient colors, and join message.
-                </div>
-              </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">Ultra Low Latency</h3>
+          <p class="feature-text">Optimized registry tweaks, memory cleanups, and driver profiles engineered for 0.1% low FPS stabilization.</p>
+        </div>
 
-            </div>
-          </div>
-
-          <!-- Discord Community Card -->
-          <div>
-            <div class="community-box">
-              <div class="feature-icon purple" style="margin-bottom: 20px;">
-                <i class="fa-brands fa-discord" style="font-size: 1.6rem;"></i>
-              </div>
-              <h3>Need Help or Support?</h3>
-              <p>
-                Our 24/7 dedicated support staff is ready to assist you with payments, perk questions, or custom server requests on our official Discord server.
-              </p>
-              
-              <a href="https://discord.gg/P2uw9eH66" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-join-discord-support">
-                <i class="fa-brands fa-discord"></i> Join Discord Server
-              </a>
-
-              <div class="support-badges">
-                <span class="support-pill"><i class="fa-solid fa-clock"></i> &lt; 5 Min Response</span>
-                <span class="support-pill"><i class="fa-solid fa-users"></i> Active Community</span>
-              </div>
-            </div>
-          </div>
-
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3 class="feature-title">Anti-Cheat Safe</h3>
+          <p class="feature-text">Designed to comply with EAC, BattlEye, Vanguard, and VAC standards without injecting unauthorized DLLs into memory.</p>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <!-- CHECKOUT MODAL -->
-  <div class="modal-overlay" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-card">
+  <!-- ==========================================================================
+       6. ADMIN LOGIN MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-box" id="loginModalBox">
+      <button class="modal-close" id="closeLoginModalBtn" aria-label="Close Modal">&times;</button>
       
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <div class="modal-header-info">
-          <span class="modal-rank-badge badge-legend" id="modal-badge-display">Most Popular</span>
-          <h3 class="modal-title" id="modal-title">Rank Checkout</h3>
+      <div class="modal-title">
+        <svg width="22" height="22" fill="none" stroke="var(--neon-red)" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        ADMIN AUTHENTICATION
+      </div>
+      <p class="modal-desc">Enter tactical credentials to access the Dark Sniper LK admin control center.</p>
+
+      <form id="adminLoginForm">
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label class="form-label" for="adminUsername">Username</label>
+          <input type="text" id="adminUsername" class="form-input" placeholder="Enter username" autocomplete="off" required />
         </div>
-        <button class="btn-close-modal" id="btn-close-modal" aria-label="Close modal">
-          <i class="fa-solid fa-xmark"></i>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" for="adminPassword">Password</label>
+          <input type="password" id="adminPassword" class="form-input" placeholder="Enter password" autocomplete="off" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Authorize Access
         </button>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="modal-body">
-        
-        <!-- Checkout Form View -->
-        <form id="checkout-form">
-          <!-- Order Summary Card -->
-          <div class="order-summary">
-            <div class="summary-left">
-              <div class="summary-icon legend-icon" id="summary-icon-box">
-                <i class="fa-solid fa-crown" id="summary-icon"></i>
-              </div>
-              <div>
-                <div class="summary-name" id="summary-rank-name">Legend Rank</div>
-                <div class="summary-server">RGS Networks • rgs.mcc.lk</div>
-              </div>
-            </div>
-            <div class="summary-price" id="summary-price-display">Rs. 1000</div>
-          </div>
-
-          <!-- Step 1: Minecraft In-Game Username -->
-          <div class="form-group">
-            <label for="mc-username" class="form-label">
-              Minecraft Username <span>*</span>
-            </label>
-            <div class="input-avatar-wrap">
-              <img src="https://mc-heads.net/avatar/Steve/100" alt="Minecraft Skin Head" class="mc-avatar-preview" id="mc-avatar-preview">
-              <input type="text" 
-                     id="mc-username" 
-                     class="form-input" 
-                     placeholder="e.g. GamerPro_99" 
-                     required 
-                     autocomplete="off" 
-                     maxlength="16">
-            </div>
-            <p class="input-hint">Enter your exact in-game IGN to receive your rank perks.</p>
-          </div>
-
-          <!-- Step 2: Payment Method Selection -->
-          <div class="form-group">
-            <label class="form-label">
-              Choose Payment Method <span>*</span>
-            </label>
-            <div class="payment-methods-grid">
-              
-              <label class="payment-option">
-                <input type="radio" name="payment_method" value="card" checked>
-                <div class="payment-box">
-                  <i class="fa-solid fa-credit-card"></i>
-                  <span>Card</span>
-                </div>
-              </label>
-
-              <label class="payment-option">
-                <input type="radio" name="payment_method" value="bank">
-                <div class="payment-box">
-                  <i class="fa-solid fa-building-columns"></i>
-                  <span>Bank Transfer</span>
-                </div>
-              </label>
-
-              <label class="payment-option">
-                <input type="radio" name="payment_method" value="mobile">
-                <div class="payment-box">
-                  <i class="fa-solid fa-mobile-screen-button"></i>
-                  <span>Mobile Reload</span>
-                </div>
-              </label>
-
-            </div>
-
-            <!-- Dynamic Payment Instructions Panel -->
-            <div class="payment-details-panel" id="payment-details-panel">
-              <!-- Rendered via JavaScript -->
-            </div>
-          </div>
-
-          <!-- Agreement Checkbox -->
-          <label class="terms-label">
-            <input type="checkbox" id="agree-terms" required>
-            <span>I agree to RGS Networks Store Terms and confirm this rank is for the provided Minecraft account.</span>
-          </label>
-
-          <!-- Submit Button -->
-          <button type="submit" class="btn-submit-order" id="btn-submit-order">
-            <span id="btn-submit-text"><i class="fa-solid fa-lock"></i> Pay Rs. 1,000</span>
-          </button>
-        </form>
-
-        <!-- Success Alert / Receipt View (Hidden until submit) -->
-        <div class="checkout-success-view" id="checkout-success-view">
-          <div class="success-icon-wrap">
-            <i class="fa-solid fa-check"></i>
-          </div>
-          <h3 class="success-title">Order Successful!</h3>
-          <p class="success-text">
-            Thank you for supporting RGS Networks! Your rank has been dispatched to <strong>rgs.mcc.lk</strong>.
-          </p>
-
-          <div class="receipt-box">
-            <div class="receipt-row">
-              <span>Transaction ID:</span>
-              <strong id="receipt-tx-id">#RGS-849204</strong>
-            </div>
-            <div class="receipt-row">
-              <span>Minecraft IGN:</span>
-              <strong id="receipt-username">Steve</strong>
-            </div>
-            <div class="receipt-row">
-              <span>Rank Purchased:</span>
-              <strong id="receipt-rank">Legend Rank</strong>
-            </div>
-            <div class="receipt-row">
-              <span>Total Paid:</span>
-              <strong id="receipt-amount" style="color:var(--cyan-400);">Rs. 1,000</strong>
-            </div>
-            <div class="receipt-row">
-              <span>Payment Method:</span>
-              <strong id="receipt-method">Card Payment</strong>
-            </div>
-          </div>
-
-          <button type="button" class="btn btn-primary" id="btn-done-success" style="width: 100%;">
-            <i class="fa-solid fa-gamepad"></i> Return to Store
-          </button>
-        </div>
-
-      </div>
+      </form>
     </div>
   </div>
 
-  <!-- Toast Notification Container -->
-  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+  <!-- ==========================================================================
+       7. DOWNLOAD PROGRESS MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="downloadModal">
+    <div class="modal-box" style="text-align: center;">
+      <button class="modal-close" id="closeDownloadModalBtn" aria-label="Close Modal">&times;</button>
 
-  <!-- FOOTER -->
+      <div style="width: 60px; height: 60px; margin: 0 auto 1rem; border-radius: 50%; background: rgba(0, 240, 255, 0.1); border: 2px solid var(--neon-cyan); display: flex; align-items: center; justify-content: center; color: var(--neon-cyan);">
+        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+      </div>
+
+      <h3 id="dlModalTitle" style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.4rem;">Preparing File...</h3>
+      <p id="dlModalDesc" style="color: var(--text-muted); font-size: 0.9rem;">Verifying security signature and establishing mirror connection.</p>
+
+      <div class="download-progress-box">
+        <div class="progress-track">
+          <div class="progress-fill" id="dlProgressFill"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-family: var(--font-tactical); font-size: 0.9rem;">
+          <span id="dlProgressStatus" style="color: var(--neon-cyan);">Initiating...</span>
+          <span id="dlProgressPct" style="color: #fff; font-weight: 700;">0%</span>
+        </div>
+      </div>
+
+      <a id="dlDirectTrigger" href="#" target="_blank" class="btn btn-cyan" style="width: 100%; display: none;">
+        Direct Download Link
+      </a>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       8. TOAST NOTIFICATION CONTAINER
+       ========================================================================== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ==========================================================================
+       9. FOOTER
+       ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-top">
+      <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#home" class="brand-logo" style="margin-bottom: 8px;">
-            <div class="logo-badge" style="width: 36px; height: 36px; font-size: 1.1rem;">
-              <i class="fa-solid fa-gamepad"></i>
+          <div class="brand-logo" style="margin-bottom: 0.5rem;">
+            <div class="reticle-icon">
+              <div class="reticle-circle"></div>
+              <div class="reticle-cross"></div>
+              <div class="reticle-cross vertical"></div>
+              <div class="reticle-dot"></div>
             </div>
-            <div class="brand-text">
-              <span class="brand-title" style="font-size: 1.15rem;">RGS <span>NETWORKS</span></span>
-            </div>
-          </a>
-          <p>
-            The premier Sri Lankan Minecraft server network delivering next-generation gamemodes, custom survival realms, competitive PvP, and high performance gameplay on <strong>rgs.mcc.lk</strong>.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#ranks">Server Ranks</a></li>
-            <li><a href="#support">Live Support</a></li>
-            <li><a href="https://discord.gg/P2uw9eH66" target="_blank">Discord Community</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Server Info</h4>
-          <ul class="footer-links">
-            <li><a href="javascript:void(0)" onclick="copyServerIP()">IP: rgs.mcc.lk</a></li>
-            <li><a href="javascript:void(0)">Version: 1.16 - 1.21+</a></li>
-            <li><a href="javascript:void(0)">Location: Sri Lanka / Asia</a></li>
-            <li><a href="javascript:void(0)">Uptime: 99.98%</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Connect with Us</h4>
-          <ul class="footer-links" style="margin-bottom: 16px;">
-            <li><a href="https://discord.gg/P2uw9eH66" target="_blank">Discord: discord.gg/P2uw9eH66</a></li>
-            <li><a href="mailto:support@rgsnetworks.net">support@rgsnetworks.net</a></li>
-          </ul>
-          <div class="footer-socials">
-            <a href="https://discord.gg/P2uw9eH66" target="_blank" rel="noopener noreferrer" class="social-link discord-link" title="Discord" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" title="YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link" title="TikTok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <div>DARK <span class="highlight">SNIPER</span><span class="lk">LK</span></div>
           </div>
+          <p>
+            Precision gaming tools, ultra-low latency configurations, and competitive mods crafted by Dark Sniper LK. Verified for competitive esports performance.
+          </p>
+          <div style="display: flex; gap: 10px;">
+            <span class="tactical-badge badge-green">STATUS: SECURE</span>
+            <span class="tactical-badge badge-cyan">TLS 1.3</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-links-title">Quick Navigation</div>
+          <ul class="footer-links-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#downloads">Download Center</a></li>
+            <li><a href="#features">Security & Compliance</a></li>
+            <li><a href="javascript:void(0)" onclick="triggerAdminModal()">Admin Panel Access</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-links-title">Tactical Network</div>
+          <ul class="footer-links-list">
+            <li><a href="https://discord.com" target="_blank" rel="noopener">Discord Community (LK Clan)</a></li>
+            <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube Gameplay & Guides</a></li>
+            <li><a href="https://t.me" target="_blank" rel="noopener">Telegram Release Channel</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener">Open Source Configs</a></li>
+          </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div>
-          Copyright &copy; 2026 <strong>RGS Networks</strong>. All rights reserved. | <a href="https://discord.gg/P2uw9eH66" target="_blank" style="color:var(--cyan-400); text-decoration:none;">Join Discord</a>
+          &copy; 2026 <strong>DARK SNIPER LK</strong>. All Tactical Rights Reserved.
         </div>
-        <div class="footer-disclaimer">
-          Not an official Minecraft product. We are not approved by or associated with Mojang Studios or Microsoft.
+        <div>
+          Designed for high-performance esports competitors.
         </div>
       </div>
     </div>
   </footer>
 
   <!-- ==========================================================================
-       JAVASCRIPT LOGIC
+       10. JAVASCRIPT APPLICATION CORE
        ========================================================================== -->
   <script>
-    // Server Configuration & Rank Data
-    const SERVER_IP = "rgs.mcc.lk";
+    /**
+     * DARK SNIPER LK - APPLICATION CORE
+     * Single-file implementation with Vanilla JS and localStorage persistence.
+     */
+    (function() {
+      'use strict';
 
-    const RANK_CONFIGS = {
-      "Elite Rank": {
-        name: "Elite Rank",
-        price: 500,
-        tier: "Starter Tier",
-        theme: "elite",
-        badgeClass: "badge-elite",
-        iconClass: "fa-solid fa-shield",
-        iconBoxClass: "elite-icon"
-      },
-      "Legend Rank": {
-        name: "Legend Rank",
-        price: 1000,
-        tier: "Most Popular",
-        theme: "legend",
-        badgeClass: "badge-legend",
-        iconClass: "fa-solid fa-crown",
-        iconBoxClass: "legend-icon"
-      },
-      "Custom Rank": {
-        name: "Custom Rank",
-        price: 2500,
-        tier: "Ultimate VIP",
-        theme: "custom",
-        badgeClass: "badge-custom",
-        iconClass: "fa-solid fa-wand-magic-sparkles",
-        iconBoxClass: "custom-icon"
-      }
-    };
+      // ------------------------------------------------------------------------
+      // A. DEFAULT DATA CATALOG
+      // ------------------------------------------------------------------------
+      const DEFAULT_FILES = [
+        {
+          id: 'dl-mc-1',
+          title: 'Minecraft Ultimate FPS Boost Pack 2026',
+          category: 'Boosters',
+          version: 'v2026.1',
+          size: '45.8 MB',
+          downloads: 1250,
+          date: '2026-08-19',
+          description: 'Comprehensive Minecraft optimization suite featuring high-performance Java runtime parameters, Sodium/Iris shader presets, memory leak fixes, and low-latency chunk rendering.',
+          downloadUrl: 'https://github.com'
+        }
+      ];
 
-    let selectedRank = RANK_CONFIGS["Legend Rank"];
-
-    // DOM References
-    const modalOverlay = document.getElementById('checkout-modal');
-    const btnCloseModal = document.getElementById('btn-close-modal');
-    const checkoutForm = document.getElementById('checkout-form');
-    const checkoutSuccessView = document.getElementById('checkout-success-view');
-    const btnDoneSuccess = document.getElementById('btn-done-success');
-    const mcUsernameInput = document.getElementById('mc-username');
-    const mcAvatarPreview = document.getElementById('mc-avatar-preview');
-    const paymentDetailsPanel = document.getElementById('payment-details-panel');
-    const btnSubmitOrder = document.getElementById('btn-submit-order');
-    const btnSubmitText = document.getElementById('btn-submit-text');
-
-    const modalBadgeDisplay = document.getElementById('modal-badge-display');
-    const summaryRankName = document.getElementById('summary-rank-name');
-    const summaryPriceDisplay = document.getElementById('summary-price-display');
-    const summaryIconBox = document.getElementById('summary-icon-box');
-    const summaryIcon = document.getElementById('summary-icon');
-
-    const toastContainer = document.getElementById('toast-container');
-    const btnCopyHeroIp = document.getElementById('btn-copy-hero-ip');
-    const heroCopyIcon = document.getElementById('hero-copy-icon');
-    const heroCopyLabel = document.getElementById('hero-copy-label');
-
-    const mobileToggle = document.getElementById('btn-mobile-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const menuIcon = document.getElementById('menu-icon');
-
-    // -------------------------------------------------------------
-    // Toast Notification Utility
-    // -------------------------------------------------------------
-    function showToast(message, icon = 'fa-solid fa-circle-check') {
-      const toast = document.createElement('div');
-      toast.className = 'toast';
-      toast.innerHTML = `<i class="${icon}"></i> <span>${message}</span>`;
-      toastContainer.appendChild(toast);
-
-      requestAnimationFrame(() => {
-        toast.classList.add('active');
-      });
-
-      setTimeout(() => {
-        toast.classList.remove('active');
-        setTimeout(() => toast.remove(), 400);
-      }, 3500);
-    }
-
-    // -------------------------------------------------------------
-    // Click-to-Copy Server IP (rgs.mcc.lk)
-    // -------------------------------------------------------------
-    function copyServerIP() {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(SERVER_IP).then(() => {
-          showToast(`Copied Server IP: <strong>${SERVER_IP}</strong> to clipboard!`, 'fa-solid fa-copy');
-          updateCopyButtonState();
-        }).catch(() => fallbackCopy());
-      } else {
-        fallbackCopy();
-      }
-    }
-
-    function fallbackCopy() {
-      const tempInput = document.createElement('input');
-      tempInput.value = SERVER_IP;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand('copy');
-      document.body.removeChild(tempInput);
-      showToast(`Copied Server IP: <strong>${SERVER_IP}</strong>!`, 'fa-solid fa-copy');
-      updateCopyButtonState();
-    }
-
-    function updateCopyButtonState() {
-      if (heroCopyIcon && heroCopyLabel) {
-        heroCopyIcon.className = 'fa-solid fa-check';
-        heroCopyIcon.style.color = '#4ade80';
-        heroCopyLabel.textContent = 'Copied!';
-        setTimeout(() => {
-          heroCopyIcon.className = 'fa-regular fa-copy';
-          heroCopyIcon.style.color = '';
-          heroCopyLabel.textContent = 'Copy IP';
-        }, 2200);
-      }
-    }
-
-    if (btnCopyHeroIp) {
-      btnCopyHeroIp.addEventListener('click', copyServerIP);
-    }
-
-    // -------------------------------------------------------------
-    // Mobile Navigation Menu Toggle
-    // -------------------------------------------------------------
-    if (mobileToggle) {
-      mobileToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('active');
-        menuIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-      });
-
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('active');
-          menuIcon.className = 'fa-solid fa-bars';
-        });
-      });
-    }
-
-    // -------------------------------------------------------------
-    // Interactive Checkout Modal Logic
-    // -------------------------------------------------------------
-    function openCheckoutModal(rankName) {
-      const rankData = RANK_CONFIGS[rankName] || RANK_CONFIGS["Legend Rank"];
-      selectedRank = rankData;
-
-      // Update Modal content dynamically
-      summaryRankName.textContent = rankData.name;
-      summaryPriceDisplay.textContent = `Rs. ${rankData.price.toLocaleString()}`;
-      modalBadgeDisplay.textContent = rankData.tier;
-      modalBadgeDisplay.className = `modal-rank-badge ${rankData.badgeClass}`;
-      
-      summaryIconBox.className = `summary-icon ${rankData.iconBoxClass}`;
-      summaryIcon.className = rankData.iconClass;
-
-      // Reset form states
-      checkoutForm.style.display = 'block';
-      checkoutSuccessView.style.display = 'none';
-      checkoutForm.reset();
-      btnSubmitOrder.disabled = false;
-      btnSubmitText.innerHTML = `<i class="fa-solid fa-lock"></i> Pay Rs. ${rankData.price.toLocaleString()}`;
-
-      // Reset Avatar
-      mcAvatarPreview.src = "https://mc-heads.net/avatar/Steve/100";
-
-      // Initialize default payment details panel (Card)
-      updatePaymentPanel('card');
-
-      // Open modal with smooth animation
-      modalOverlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-
-      setTimeout(() => {
-        mcUsernameInput.focus();
-      }, 150);
-    }
-
-    function closeCheckoutModal() {
-      modalOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Attach click listeners to all rank buttons
-    document.querySelectorAll('.btn-purchase').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const rankName = btn.getAttribute('data-rank');
-        openCheckoutModal(rankName);
-      });
-    });
-
-    if (btnCloseModal) {
-      btnCloseModal.addEventListener('click', closeCheckoutModal);
-    }
-
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) {
-        closeCheckoutModal();
-      }
-    });
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-        closeCheckoutModal();
-      }
-    });
-
-    if (btnDoneSuccess) {
-      btnDoneSuccess.addEventListener('click', closeCheckoutModal);
-    }
-
-    // -------------------------------------------------------------
-    // Live Minecraft Avatar Fetcher
-    // -------------------------------------------------------------
-    let avatarDebounceTimer;
-    mcUsernameInput.addEventListener('input', (e) => {
-      clearTimeout(avatarDebounceTimer);
-      const username = e.target.value.trim();
-      
-      if (!username) {
-        mcAvatarPreview.src = "https://mc-heads.net/avatar/Steve/100";
-        return;
-      }
-
-      avatarDebounceTimer = setTimeout(() => {
-        // Fetch head from MC-Heads API (standard for Minecraft stores)
-        mcAvatarPreview.src = `https://mc-heads.net/avatar/${encodeURIComponent(username)}/100`;
-        
-        mcAvatarPreview.onerror = () => {
-          // Fallback if needed
-          mcAvatarPreview.src = `https://minotar.net/helm/${encodeURIComponent(username)}/100`;
-        };
-      }, 350);
-    });
-
-    // -------------------------------------------------------------
-    // Dynamic Payment Methods Details Panel
-    // -------------------------------------------------------------
-    function updatePaymentPanel(method) {
-      if (method === 'card') {
-        paymentDetailsPanel.innerHTML = `
-          <div class="detail-row">
-            <span>Accepted Cards:</span>
-            <strong>Visa, Mastercard, Amex</strong>
-          </div>
-          <div class="detail-row">
-            <span>Processing Fee:</span>
-            <strong style="color:#4ade80;">Rs. 0 (Free)</strong>
-          </div>
-          <div style="margin-top:8px; font-size:0.8rem; color:var(--text-muted);">
-            <i class="fa-solid fa-lock" style="color:var(--cyan-400)"></i> Encrypted 256-bit SSL secure payment processing.
-          </div>
-        `;
-      } else if (method === 'bank') {
-        paymentDetailsPanel.innerHTML = `
-          <div class="detail-row">
-            <span>Bank:</span>
-            <strong>Commercial Bank of Ceylon / HNB</strong>
-          </div>
-          <div class="detail-row">
-            <span>Account Name:</span>
-            <strong>RGS NETWORKS PVT LTD</strong>
-          </div>
-          <div class="detail-row">
-            <span>Account No:</span>
-            <strong style="color:var(--cyan-400);">8019482012</strong>
-          </div>
-          <div class="detail-row">
-            <span>Branch:</span>
-            <strong>Colombo Main Branch</strong>
-          </div>
-          <div style="margin-top:8px; font-size:0.78rem; color:var(--text-muted);">
-            *Use your Minecraft IGN as the payment reference note.
-          </div>
-        `;
-      } else if (method === 'mobile') {
-        paymentDetailsPanel.innerHTML = `
-          <div class="detail-row">
-            <span>Supported Carriers:</span>
-            <strong>Dialog, Mobitel, Hutch, Airtel</strong>
-          </div>
-          <div class="detail-row">
-            <span>Wallets:</span>
-            <strong>EzCash / mCash / Direct Reload</strong>
-          </div>
-          <div class="detail-row">
-            <span>Merchant Number:</span>
-            <strong style="color:var(--cyan-400);">077 123 4567</strong>
-          </div>
-          <div style="margin-top:8px; font-size:0.78rem; color:var(--text-muted);">
-            *Send exact amount with your IGN as reference message.
-          </div>
-        `;
-      }
-    }
-
-    document.querySelectorAll('input[name="payment_method"]').forEach(radio => {
-      radio.addEventListener('change', (e) => {
-        updatePaymentPanel(e.target.value);
-      });
-    });
-
-    // -------------------------------------------------------------
-    // Checkout Form Submission & Celebration
-    // -------------------------------------------------------------
-    checkoutForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const username = mcUsernameInput.value.trim();
-      if (!username) {
-        showToast('Please enter your Minecraft username!', 'fa-solid fa-triangle-exclamation');
-        mcUsernameInput.focus();
-        return;
-      }
-
-      const selectedMethodRadio = document.querySelector('input[name="payment_method"]:checked');
-      const paymentMethod = selectedMethodRadio ? selectedMethodRadio.value : 'card';
-      
-      const methodNames = {
-        'card': 'Credit / Debit Card',
-        'bank': 'Direct Bank Transfer',
-        'mobile': 'Mobile Reload / Wallet'
+      // LocalStorage Keys
+      const STORAGE_KEYS = {
+        FILES: 'dark_sniper_files_v3',
+        ADMIN_AUTH: 'dark_sniper_admin_auth',
+        SOUND_ENABLED: 'dark_sniper_sound_pref'
       };
 
-      // Loading state simulation
-      btnSubmitOrder.disabled = true;
-      btnSubmitText.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Processing Order...`;
+      // State Management
+      let state = {
+        files: [],
+        isAdmin: false,
+        activeCategory: 'All',
+        searchQuery: '',
+        soundEnabled: true
+      };
 
-      setTimeout(() => {
-        // Generate realistic transaction ID
-        const randomTxId = '#RGS-' + Math.floor(100000 + Math.random() * 900000);
+      // ------------------------------------------------------------------------
+      // B. SYNTHESIZED WEB AUDIO ENGINE (Zero dependencies)
+      // ------------------------------------------------------------------------
+      let audioCtx = null;
 
-        // Populate receipt details
-        document.getElementById('receipt-tx-id').textContent = randomTxId;
-        document.getElementById('receipt-username').textContent = username;
-        document.getElementById('receipt-rank').textContent = selectedRank.name;
-        document.getElementById('receipt-amount').textContent = `Rs. ${selectedRank.price.toLocaleString()}`;
-        document.getElementById('receipt-method').textContent = methodNames[paymentMethod];
+      function getAudioContext() {
+        if (!audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            audioCtx = new AudioContext();
+          }
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        return audioCtx;
+      }
 
-        // Switch to success view
-        checkoutForm.style.display = 'none';
-        checkoutSuccessView.style.display = 'block';
+      function playTacticalSound(type = 'click') {
+        if (!state.soundEnabled) return;
+        try {
+          const ctx = getAudioContext();
+          if (!ctx) return;
 
-        // Trigger celebratory confetti burst
-        if (typeof confetti === 'function') {
-          confetti({
-            particleCount: 80,
-            spread: 70,
-            origin: { y: 0.6 },
-            colors: ['#00f0ff', '#a855f7', '#fbbf24', '#ffffff']
+          const now = ctx.currentTime;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          if (type === 'click') {
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(880, now);
+            osc.frequency.exponentialRampToValueAtTime(440, now + 0.05);
+            gain.gain.setValueAtTime(0.12, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+            osc.start(now);
+            osc.stop(now + 0.05);
+          } else if (type === 'success') {
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(520, now);
+            osc.frequency.exponentialRampToValueAtTime(1040, now + 0.15);
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+            osc.start(now);
+            osc.stop(now + 0.2);
+          } else if (type === 'error') {
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(220, now);
+            osc.frequency.setValueAtTime(150, now + 0.1);
+            gain.gain.setValueAtTime(0.2, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+            osc.start(now);
+            osc.stop(now + 0.25);
+          } else if (type === 'download') {
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(400, now);
+            osc.frequency.linearRampToValueAtTime(1200, now + 0.3);
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+            osc.start(now);
+            osc.stop(now + 0.35);
+          }
+        } catch (e) {
+          // Audio unsupported or blocked by browser
+        }
+      }
+
+      // ------------------------------------------------------------------------
+      // C. TOAST NOTIFICATION SYSTEM
+      // ------------------------------------------------------------------------
+      function showToast(message, type = 'info') {
+        const container = document.getElementById('toastContainer');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        
+        let iconSvg = `
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        `;
+        if (type === 'success') {
+          iconSvg = `
+            <svg width="20" height="20" fill="none" stroke="var(--neon-emerald)" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          `;
+        } else if (type === 'error') {
+          iconSvg = `
+            <svg width="20" height="20" fill="none" stroke="var(--neon-red)" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          `;
+        }
+
+        toast.innerHTML = `${iconSvg} <span>${escapeHtml(message)}</span>`;
+        container.appendChild(toast);
+
+        setTimeout(() => {
+          toast.style.animation = 'toastOut 0.3s ease-in forwards';
+          setTimeout(() => toast.remove(), 300);
+        }, 3600);
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      // ------------------------------------------------------------------------
+      // D. STORAGE & DATA MANAGEMENT
+      // ------------------------------------------------------------------------
+      function loadFiles() {
+        try {
+          const stored = localStorage.getItem(STORAGE_KEYS.FILES);
+          if (stored) {
+            state.files = JSON.parse(stored);
+          } else {
+            state.files = [...DEFAULT_FILES];
+            saveFiles();
+          }
+        } catch (e) {
+          state.files = [...DEFAULT_FILES];
+        }
+      }
+
+      function saveFiles() {
+        try {
+          localStorage.setItem(STORAGE_KEYS.FILES, JSON.stringify(state.files));
+        } catch (e) {
+          console.error('Error writing to localStorage', e);
+        }
+      }
+
+      function loadAuthState() {
+        state.isAdmin = localStorage.getItem(STORAGE_KEYS.ADMIN_AUTH) === 'true';
+      }
+
+      function saveAuthState(isAdmin) {
+        state.isAdmin = isAdmin;
+        localStorage.setItem(STORAGE_KEYS.ADMIN_AUTH, isAdmin ? 'true' : 'false');
+      }
+
+      // ------------------------------------------------------------------------
+      // E. RENDER DOWNLOAD CARDS & ADMIN UI
+      // ------------------------------------------------------------------------
+      function renderDownloads() {
+        const grid = document.getElementById('downloadGrid');
+        if (!grid) return;
+
+        // Filter files based on Category & Search Query
+        const filtered = state.files.filter(file => {
+          const matchesCat = state.activeCategory === 'All' || file.category === state.activeCategory;
+          const query = state.searchQuery.trim().toLowerCase();
+          const matchesSearch = !query || 
+            file.title.toLowerCase().includes(query) ||
+            file.description.toLowerCase().includes(query) ||
+            file.category.toLowerCase().includes(query);
+          return matchesCat && matchesSearch;
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+            <div class="empty-state">
+              <div class="empty-state-icon">⚠️</div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.5rem;">NO TACTICAL FILES FOUND</h3>
+              <p style="color: var(--text-muted); margin-bottom: 1.25rem;">No files matched the current filter or search criteria "${escapeHtml(state.searchQuery)}".</p>
+              <button class="btn btn-outline" onclick="resetFilters()">Reset Search Filter</button>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = filtered.map(file => {
+          let badgeClass = 'badge-cyan';
+          if (file.category === 'Configs') badgeClass = 'badge-red';
+          if (file.category === 'Boosters') badgeClass = 'badge-green';
+          if (file.category === 'Scripts') badgeClass = 'badge-amber';
+
+          const adminDeleteBtn = state.isAdmin ? `
+            <button class="delete-file-btn" onclick="deleteFile('${file.id}')" title="Delete file as Admin" aria-label="Delete File">
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+              </svg>
+            </button>
+          ` : '';
+
+          return `
+            <article class="download-card" id="card-${file.id}">
+              <div>
+                <div class="card-top">
+                  <span class="tactical-badge ${badgeClass}">${escapeHtml(file.category)}</span>
+                  <span style="font-family: var(--font-tactical); font-size: 0.85rem; color: var(--text-dim);">${escapeHtml(file.version || 'v2026')}</span>
+                </div>
+
+                <h3 class="card-title">${escapeHtml(file.title)}</h3>
+                <p class="card-desc">${escapeHtml(file.description)}</p>
+
+                <div class="card-specs">
+                  <div class="spec-item">
+                    <svg width="15" height="15" fill="none" stroke="var(--neon-cyan)" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <span>Size: <strong>${escapeHtml(file.size)}</strong></span>
+                  </div>
+                  <div class="spec-item">
+                    <svg width="15" height="15" fill="none" stroke="var(--neon-emerald)" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
+                    <span>DLs: <strong id="count-${file.id}">${(file.downloads || 0).toLocaleString()}</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-actions">
+                <button class="btn btn-cyan download-btn" onclick="startDownload('${file.id}')">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                  </svg>
+                  Download Now
+                </button>
+                ${adminDeleteBtn}
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        updateTelemetryAndStats();
+      }
+
+      function updateTelemetryAndStats() {
+        const totalFiles = state.files.length;
+        const totalDownloads = state.files.reduce((acc, curr) => acc + (curr.downloads || 0), 0);
+
+        const dlStatEl = document.getElementById('statDownloads');
+        if (dlStatEl) dlStatEl.textContent = totalDownloads.toLocaleString() + '+';
+
+        const adminFilesEl = document.getElementById('adminTotalFiles');
+        if (adminFilesEl) adminFilesEl.textContent = totalFiles;
+
+        const adminDlsEl = document.getElementById('adminTotalDownloads');
+        if (adminDlsEl) adminDlsEl.textContent = totalDownloads.toLocaleString();
+      }
+
+      function updateAdminUI() {
+        const adminSection = document.getElementById('admin-panel');
+        const adminNavTab = document.getElementById('adminNavTab');
+        const adminBtnText = document.getElementById('adminBtnText');
+        const adminAuthBtn = document.getElementById('adminAuthBtn');
+
+        if (state.isAdmin) {
+          adminSection.classList.add('active');
+          adminNavTab.style.display = 'block';
+          adminBtnText.textContent = 'Admin Active (Logout)';
+          adminAuthBtn.className = 'btn btn-outline';
+        } else {
+          adminSection.classList.remove('active');
+          adminNavTab.style.display = 'none';
+          adminBtnText.textContent = 'Admin Login';
+          adminAuthBtn.className = 'btn btn-primary';
+        }
+
+        renderDownloads();
+      }
+
+      // ------------------------------------------------------------------------
+      // F. DOWNLOAD HANDLER & MODAL PROGRESS
+      // ------------------------------------------------------------------------
+      window.startDownload = function(fileId) {
+        playTacticalSound('click');
+        const file = state.files.find(f => f.id === fileId);
+        if (!file) return;
+
+        // Increment count
+        file.downloads = (file.downloads || 0) + 1;
+        saveFiles();
+        updateTelemetryAndStats();
+        const countEl = document.getElementById(`count-${file.id}`);
+        if (countEl) countEl.textContent = file.downloads.toLocaleString();
+
+        // Open Download Modal & Simulate High-Tech Verification
+        const modal = document.getElementById('downloadModal');
+        const modalTitle = document.getElementById('dlModalTitle');
+        const modalDesc = document.getElementById('dlModalDesc');
+        const progressFill = document.getElementById('dlProgressFill');
+        const progressStatus = document.getElementById('dlProgressStatus');
+        const progressPct = document.getElementById('dlProgressPct');
+        const directLink = document.getElementById('dlDirectTrigger');
+
+        modalTitle.textContent = `Downloading: ${file.title}`;
+        modalDesc.textContent = `Package Size: ${file.size} | Checking mirror integrity...`;
+        progressFill.style.width = '0%';
+        progressPct.textContent = '0%';
+        progressStatus.textContent = 'Contacting secure cluster...';
+        directLink.style.display = 'none';
+        directLink.href = file.downloadUrl || '#';
+
+        modal.classList.add('active');
+
+        let pct = 0;
+        const interval = setInterval(() => {
+          pct += Math.floor(Math.random() * 22) + 15;
+          if (pct >= 100) {
+            pct = 100;
+            clearInterval(interval);
+            progressFill.style.width = '100%';
+            progressPct.textContent = '100%';
+            progressStatus.textContent = 'Security Verified. Ready!';
+            directLink.style.display = 'inline-flex';
+            directLink.textContent = 'Click If Download Did Not Start';
+
+            playTacticalSound('download');
+            showToast(`Download initialized for ${file.title}`, 'success');
+
+            // Trigger simulated download or direct link open
+            setTimeout(() => {
+              if (file.downloadUrl && file.downloadUrl.startsWith('http')) {
+                window.open(file.downloadUrl, '_blank');
+              } else {
+                // Generate a lightweight virtual file
+                const blob = new Blob([`[DARK SNIPER LK 2026]\nFile: ${file.title}\nCategory: ${file.category}\nVersion: ${file.version}\nStatus: Verified Tactical Build`], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${file.title.replace(/\s+/g, '_')}_LK.txt`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+              }
+            }, 600);
+          } else {
+            progressFill.style.width = `${pct}%`;
+            progressPct.textContent = `${pct}%`;
+            if (pct > 50) progressStatus.textContent = 'Decompressing packet payload...';
+          }
+        }, 120);
+      };
+
+      // ------------------------------------------------------------------------
+      // G. ADMIN FILE CRUD OPERATIONS
+      // ------------------------------------------------------------------------
+      window.deleteFile = function(fileId) {
+        if (!state.isAdmin) {
+          showToast('Unauthorized. Admin session required.', 'error');
+          return;
+        }
+
+        const target = state.files.find(f => f.id === fileId);
+        const title = target ? target.title : 'File';
+
+        if (confirm(`TACTICAL CONFIRMATION:\nAre you sure you want to permanently delete:\n"${title}"?`)) {
+          state.files = state.files.filter(f => f.id !== fileId);
+          saveFiles();
+          playTacticalSound('success');
+          showToast(`Deleted "${title}" from public grid`, 'success');
+          renderDownloads();
+        }
+      };
+
+      window.resetFilters = function() {
+        state.searchQuery = '';
+        state.activeCategory = 'All';
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) searchInput.value = '';
+        document.querySelectorAll('.cat-tab').forEach(t => {
+          t.classList.toggle('active', t.getAttribute('data-category') === 'All');
+        });
+        renderDownloads();
+      };
+
+      window.triggerAdminModal = function() {
+        if (state.isAdmin) {
+          const adminPanel = document.getElementById('admin-panel');
+          if (adminPanel) adminPanel.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          openLoginModal();
+        }
+      };
+
+      // ------------------------------------------------------------------------
+      // H. MODAL EVENT CONTROLLERS
+      // ------------------------------------------------------------------------
+      function openLoginModal() {
+        playTacticalSound('click');
+        const form = document.getElementById('adminLoginForm');
+        if (form) form.reset();
+        const userInp = document.getElementById('adminUsername');
+        const passInp = document.getElementById('adminPassword');
+        if (userInp) userInp.value = '';
+        if (passInp) passInp.value = '';
+        const modal = document.getElementById('loginModal');
+        modal.classList.add('active');
+        setTimeout(() => userInp && userInp.focus(), 100);
+      }
+
+      function closeLoginModal() {
+        playTacticalSound('click');
+        const form = document.getElementById('adminLoginForm');
+        if (form) form.reset();
+        const userInp = document.getElementById('adminUsername');
+        const passInp = document.getElementById('adminPassword');
+        if (userInp) userInp.value = '';
+        if (passInp) passInp.value = '';
+        const modal = document.getElementById('loginModal');
+        modal.classList.remove('active');
+      }
+
+      // ------------------------------------------------------------------------
+      // I. EVENT LISTENERS & BINDINGS
+      // ------------------------------------------------------------------------
+      document.addEventListener('DOMContentLoaded', () => {
+        // Load initial state
+        loadFiles();
+        loadAuthState();
+        updateAdminUI();
+
+        // Sound Toggle
+        const soundBtn = document.getElementById('soundToggleBtn');
+        soundBtn.addEventListener('click', () => {
+          state.soundEnabled = !state.soundEnabled;
+          soundBtn.style.color = state.soundEnabled ? 'var(--neon-cyan)' : 'var(--text-dim)';
+          showToast(`Tactical Audio: ${state.soundEnabled ? 'ENABLED' : 'MUTED'}`, 'info');
+          playTacticalSound('click');
+        });
+
+        // Admin Auth Button (Header)
+        const adminAuthBtn = document.getElementById('adminAuthBtn');
+        adminAuthBtn.addEventListener('click', () => {
+          if (state.isAdmin) {
+            if (confirm('Logout of Admin Command Center?')) {
+              saveAuthState(false);
+              playTacticalSound('click');
+              showToast('Logged out of Admin Mode', 'info');
+              updateAdminUI();
+            }
+          } else {
+            openLoginModal();
+          }
+        });
+
+        // Admin Logout in Section
+        const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+        if (adminLogoutBtn) {
+          adminLogoutBtn.addEventListener('click', () => {
+            saveAuthState(false);
+            playTacticalSound('click');
+            showToast('Logged out of Admin Mode', 'info');
+            updateAdminUI();
           });
-
-          setTimeout(() => {
-            confetti({
-              particleCount: 45,
-              angle: 60,
-              spread: 55,
-              origin: { x: 0 },
-              colors: ['#00f0ff', '#a855f7']
-            });
-            confetti({
-              particleCount: 45,
-              angle: 120,
-              spread: 55,
-              origin: { x: 1 },
-              colors: ['#00f0ff', '#fbbf24']
-            });
-          }, 250);
         }
 
-        showToast(`Congratulations ${username}! ${selectedRank.name} purchased successfully!`, 'fa-solid fa-circle-check');
-      }, 1200);
-    });
-
-    // -------------------------------------------------------------
-    // FAQ Accordion Toggle
-    // -------------------------------------------------------------
-    document.querySelectorAll('.faq-question').forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentElement;
-        const isActive = item.classList.contains('active');
-        
-        // Close other accordion items
-        document.querySelectorAll('.faq-item').forEach(other => other.classList.remove('active'));
-        
-        if (!isActive) {
-          item.classList.add('active');
-        }
-      });
-    });
-
-    // -------------------------------------------------------------
-    // Active Nav Highlight on Scroll
-    // -------------------------------------------------------------
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.pageYOffset;
-
-      sections.forEach(current => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 120;
-        const sectionId = current.getAttribute('id');
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${sectionId}`) {
-              link.classList.add('active');
+        // Reset to Default Catalog
+        const resetCatalogBtn = document.getElementById('resetCatalogBtn');
+        if (resetCatalogBtn) {
+          resetCatalogBtn.addEventListener('click', () => {
+            if (confirm('Reset download catalog back to default official builds?')) {
+              state.files = [...DEFAULT_FILES];
+              saveFiles();
+              playTacticalSound('success');
+              showToast('Catalog restored to default LK repository', 'success');
+              renderDownloads();
             }
           });
         }
+
+        // Login Modal Close Buttons
+        document.getElementById('closeLoginModalBtn').addEventListener('click', closeLoginModal);
+        document.getElementById('loginModal').addEventListener('click', (e) => {
+          if (e.target === e.currentTarget) closeLoginModal();
+        });
+
+        // Download Modal Close
+        const dlModal = document.getElementById('downloadModal');
+        document.getElementById('closeDownloadModalBtn').addEventListener('click', () => {
+          dlModal.classList.remove('active');
+        });
+        dlModal.addEventListener('click', (e) => {
+          if (e.target === e.currentTarget) dlModal.classList.remove('active');
+        });
+
+        // Admin Login Form Submit
+        const adminLoginForm = document.getElementById('adminLoginForm');
+        const loginModalBox = document.getElementById('loginModalBox');
+
+        adminLoginForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const user = document.getElementById('adminUsername').value.trim();
+          const pass = document.getElementById('adminPassword').value.trim();
+
+          // Hardcoded credentials verification: dark / dark
+          if (user === 'dark' && pass === 'dark') {
+            saveAuthState(true);
+            playTacticalSound('success');
+            showToast('Authorization Granted. Welcome, Administrator.', 'success');
+            closeLoginModal();
+            updateAdminUI();
+            adminLoginForm.reset();
+
+            setTimeout(() => {
+              const panel = document.getElementById('admin-panel');
+              if (panel) panel.scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+          } else {
+            playTacticalSound('error');
+            showToast('Access Denied: Invalid tactical credentials', 'error');
+            loginModalBox.classList.add('shake');
+            setTimeout(() => loginModalBox.classList.remove('shake'), 500);
+          }
+        });
+
+        // Add File Form (Admin Dashboard)
+        const addFileForm = document.getElementById('addFileForm');
+        if (addFileForm) {
+          addFileForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (!state.isAdmin) {
+              showToast('Authentication expired. Please log in again.', 'error');
+              return;
+            }
+
+            const title = document.getElementById('fileTitle').value.trim();
+            const category = document.getElementById('fileCategory').value;
+            const size = document.getElementById('fileSize').value.trim();
+            const version = document.getElementById('fileVersion').value.trim() || 'v2026.1';
+            const downloadUrl = document.getElementById('fileDownloadLink').value.trim();
+            const description = document.getElementById('fileDescription').value.trim();
+
+            if (!title || !size || !downloadUrl || !description) {
+              showToast('Please fill out all required fields', 'error');
+              return;
+            }
+
+            const newFile = {
+              id: 'dl-' + Date.now(),
+              title,
+              category,
+              version,
+              size,
+              downloads: 0,
+              date: new Date().toISOString().split('T')[0],
+              description,
+              downloadUrl
+            };
+
+            // Prepend new file to top of catalog
+            state.files.unshift(newFile);
+            saveFiles();
+
+            playTacticalSound('success');
+            showToast(`Published "${title}" successfully!`, 'success');
+            addFileForm.reset();
+            renderDownloads();
+
+            // Smooth scroll to view newly added card
+            setTimeout(() => {
+              const newCard = document.getElementById(`card-${newFile.id}`);
+              if (newCard) {
+                newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                newCard.style.boxShadow = '0 0 35px var(--neon-cyan)';
+                setTimeout(() => newCard.style.boxShadow = '', 1800);
+              }
+            }, 350);
+          });
+        }
+
+        // Search Input Filtering
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+          searchInput.addEventListener('input', (e) => {
+            state.searchQuery = e.target.value;
+            renderDownloads();
+          });
+        }
+
+        // Category Tab Switchers
+        const categoryTabs = document.getElementById('categoryTabs');
+        if (categoryTabs) {
+          categoryTabs.addEventListener('click', (e) => {
+            const btn = e.target.closest('.cat-tab');
+            if (!btn) return;
+            playTacticalSound('click');
+
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            state.activeCategory = btn.getAttribute('data-category');
+            renderDownloads();
+          });
+        }
+
+        // Mobile Menu Drawer
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        if (mobileMenuBtn && navMenu) {
+          mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            playTacticalSound('click');
+          });
+
+          // Close on link click
+          navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navMenu.classList.remove('open'));
+          });
+        }
+
+        // Simulated Dynamic HUD Ping Telemetry
+        const pingEl = document.getElementById('livePing');
+        setInterval(() => {
+          if (pingEl) {
+            const simulatedPing = Math.floor(Math.random() * 8) + 10;
+            pingEl.textContent = `${simulatedPing}ms`;
+          }
+        }, 3500);
+
+        // Escape Key for Modals
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+          }
+        });
       });
-    });
+    })();
   </script>
 </body>
 </html>
