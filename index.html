@@ -1693,7 +1693,7 @@
         </div>
       </div>
 
-      <a id="dlDirectTrigger" href="#" target="_blank" class="btn btn-cyan" style="width: 100%; display: none;">
+      <a id="dlDirectTrigger" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-cyan" style="width: 100%; display: none;">
         Direct Download Link
       </a>
     </div>
@@ -2130,7 +2130,13 @@
             // Trigger simulated download or direct link open
             setTimeout(() => {
               if (file.downloadUrl && file.downloadUrl.startsWith('http')) {
-                window.open(file.downloadUrl, '_blank');
+                const triggerLink = document.createElement('a');
+                triggerLink.href = file.downloadUrl;
+                triggerLink.target = '_blank';
+                triggerLink.rel = 'noopener noreferrer';
+                document.body.appendChild(triggerLink);
+                triggerLink.click();
+                triggerLink.remove();
               } else {
                 // Generate a lightweight virtual file
                 const blob = new Blob([`[DARK SNIPER LK 2026]\nFile: ${file.title}\nCategory: ${file.category}\nVersion: ${file.version}\nStatus: Verified Tactical Build`], { type: 'text/plain' });
